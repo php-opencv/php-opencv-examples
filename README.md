@@ -1,8 +1,3 @@
-
-#### Installation
-- [Installation on ubuntu 17.10](https://github.com/php-opencv/php-opencv-examples/wiki/Installation-on-ubuntu-17.10)
-- [installation via docker](https://github.com/php-opencv/php-opencv-examples/wiki/installation-via-docker)
-
 #### Examples
 - [detect face by cascade classifier](https://github.com/php-opencv/php-opencv-examples/blob/master/detect_face_by_cascade_classifier.php)
 
@@ -17,3 +12,12 @@
 
 #### Helper for autocomplete and highlighting in your IDE
 - [phpdoc file](https://github.com/php-opencv/php-opencv-examples/blob/master/phpdoc.php)
+
+#### Installation
+- [Installation on ubuntu 17.10](https://github.com/php-opencv/php-opencv-examples/wiki/Installation-on-ubuntu-17.10)
+- [installation via docker](https://github.com/php-opencv/php-opencv-examples/wiki/installation-via-docker)
+
+#### Thanks
+- author of examples and contributor of library -> https://github.com/morozovsk
+- send your PR for library there -> https://github.com/php-opencv/php-opencv
+- author of library -> https://github.com/hihozhou
