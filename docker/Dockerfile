@@ -12,13 +12,13 @@ RUN echo "extension=opencv.so" > /etc/php/7.1/cli/conf.d/opencv.ini
 
 #from sources:
 
-#RUN apt update && apt install -y pkg-config cmake git php php-dev
+#RUN apt update && apt install -y pkg-config cmake git php-cli php-dev
 
 #RUN git clone https://github.com/opencv/opencv_contrib.git && git clone https://github.com/opencv/opencv.git
 
-#RUN cd opencv_contrib && git checkout 3.4 && cd ../opencv && git checkout 3.4 && mkdir build
+#RUN cd opencv_contrib && git checkout 3.4 && cd ../opencv && git checkout 3.4
 
-#RUN cd /opencv/build && cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D OPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules .. && make -j4 && make install
+#RUN mkdir build && cd build && cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D OPENCV_EXTRA_MODULES_PATH=../opencv_contrib/modules ../opencv && make -j4 && make install
 
 #RUN ldconfig
 
@@ -32,6 +32,6 @@ RUN echo "extension=opencv.so" > /etc/php/7.1/cli/conf.d/opencv.ini
 
 #RUN apt install -y checkinstall
 
-#RUN cd /opencv/build && checkinstall --default --type debian --install=no --pkgname opencv --pkgversion "3.4" --pkglicense "3-clause BSD License" --pakdir ~ --maintainer "php-opencv" --addso --autodoinst make install
+#RUN cd build && checkinstall --default --type debian --install=no --pkgname opencv --pkgversion "3.4" --pkglicense "3-clause BSD License" --pakdir ~ --maintainer "php-opencv" --addso --autodoinst make install
 
 #RUN cd php-opencv && checkinstall --default --type debian --install=no --pkgname php-opencv --pkgversion "3.4" --pkglicense "Apache 2.0" --pakdir ~ --maintainer "php-opencv" --addso --autodoinst make install
