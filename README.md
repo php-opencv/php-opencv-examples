@@ -14,7 +14,7 @@
 - [phpdoc file](https://github.com/php-opencv/php-opencv-examples/blob/master/phpdoc.php)
 
 #### Installation
-- [Installation on ubuntu 17.10](https://github.com/php-opencv/php-opencv-examples/wiki/Installation-on-ubuntu-17.10)
+- [Installation on ubuntu](https://github.com/php-opencv/php-opencv-examples/wiki/Installation-on-ubuntu)
 - [installation via docker](https://github.com/php-opencv/php-opencv-examples/wiki/installation-via-docker)
 
 #### Thanks
