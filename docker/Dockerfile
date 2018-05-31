@@ -2,7 +2,7 @@ FROM ubuntu:17.10
 
 #from packages:
 
-RUN apt update && apt install -y php wget
+RUN apt update && apt install -y php-cli wget
 
 RUN wget https://raw.githubusercontent.com/php-opencv/php-opencv-examples/master/packages/opencv_3.4_amd64.deb && dpkg -i opencv_3.4_amd64.deb && rm opencv_3.4_amd64.deb
 
