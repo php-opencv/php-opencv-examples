@@ -188,7 +188,7 @@ class Mat {
      * @param float|null $beta
      * @return null
      */
-    public function convert_to(Mat &$dst, int $rtype, float $alpha = null, float $beta = null) {
+    public function convertTo(Mat &$dst, int $rtype, float $alpha = null, float $beta = null) {
         return null;
     }
 
@@ -574,8 +574,35 @@ function resize(Mat $mat, Mat &$dst, Size $size, float $fx = 0, float $fy = 0, i
     return null;
 }
 
+/**
+ * @param Mat $mat
+ * @param Mat $dst
+ * @param float $thresh
+ * @param float $maxval
+ * @param int $type
+ * @return float
+ */
+function threshold(Mat $mat, Mat &$dst, float $thresh, float $maxval, int $type) {
 
-function split() {}
+}
+
+/**
+ * @param Mat $mat
+ * @return array
+ */
+function split(Mat $mat) {
+    return [];
+}
+
+/**
+ * @param array $channels
+ * @param Mat $dst
+ * @return null
+ */
+function merge(array $channels, Mat &$dst) {
+    return null;
+}
+
 function createTrackbar() {}
 function destroyWindow() {}
 function getOptimalDFTSize() {}
@@ -600,7 +627,6 @@ function namedWindow() {}
 
 function fillPoly() {}
 function addWeighted() {}
-function merge() {}
 function copyMakeBorder() {}
 function dft() {}
 function magnitude() {}
@@ -620,7 +646,6 @@ function Scharr() {}
 function Laplacian() {}
 function convertScaleAbs() {}
 function getStructuringElement() {}
-function threshold() {}
 function morphologyEx() {}
 function LUT() {}
 function floodFill() {}
@@ -629,6 +654,7 @@ function findContoursWithoutHierarchy() {}
 function drawContours() {}
 
 define('CV\COLOR_BGR2GRAY', 6);
+define('CV\COLOR_RGB2GRAY', 7);
 
 namespace CV\Face;
 use CV\Mat;
