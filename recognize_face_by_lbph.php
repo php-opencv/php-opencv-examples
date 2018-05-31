@@ -35,7 +35,6 @@ if ($faces) {
     $mat = $gray->getImageROI($faces[0]);
 
     //predict
-    $faceLabel = $faceRecognizer->predict($gray);
-    $faceConfidence = $faceRecognizer->predictConfidence($gray);
+    $faceLabel = $faceRecognizer->predict($gray, $faceConfidence);
     echo "{$faceLabel}, {$faceConfidence}\n";
 }

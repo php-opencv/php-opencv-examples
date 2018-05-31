@@ -683,18 +683,11 @@ class LBPHFaceRecognizer {
 
     /**
      * @param Mat $mat
+     * @param float $confidence
      * @return int $label
      */
-    public function predict(\CV\Mat $mat) {
+    public function predict(\CV\Mat $mat, float &$confidence) {
         return $label = 1;
-    }
-
-    /**
-     * @param Mat $mat
-     * @return float $confidence
-     */
-    public function predictConfidence(\CV\Mat $mat) {
-        return $confidence = 98.13;
     }
 }
 
