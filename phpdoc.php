@@ -32,6 +32,11 @@ class Mat {
     public $dims;
 
     /**
+     * @var
+     */
+    public $shape;
+
+    /**
      * Mat constructor.
      * @param int $rows
      * @param int $cols
