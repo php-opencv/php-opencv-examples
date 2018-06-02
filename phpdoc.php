@@ -208,10 +208,10 @@ class Mat {
     }
 
     /**
-     * @param int $number
+     * @param float $number
      * @return Mat|null
      */
-    public function divide(int $number) {
+    public function divide(float $number) {
 
     }
 
@@ -603,6 +603,21 @@ function merge(array $channels, Mat &$dst) {
     return null;
 }
 
+/**
+ * @param Mat $mat
+ * @param Mat $dst
+ * @param int $top
+ * @param int $bottom
+ * @param int $left
+ * @param int $right
+ * @param int $borderType
+ * @param Scalar|null $color
+ * @return null
+ */
+function copyMakeBorder(Mat $mat, Mat &$dst, int $top, int $bottom, int $left, int $right, int $borderType, Scalar $color = null) {
+    return null;
+}
+
 function createTrackbar() {}
 function destroyWindow() {}
 function getOptimalDFTSize() {}
@@ -627,7 +642,6 @@ function namedWindow() {}
 
 function fillPoly() {}
 function addWeighted() {}
-function copyMakeBorder() {}
 function dft() {}
 function magnitude() {}
 function add() {}
@@ -653,8 +667,252 @@ function adaptiveThreshold() {}
 function findContoursWithoutHierarchy() {}
 function drawContours() {}
 
+define('CV\CV_8U', 0);
+define('CV\CV_8S', 1);
+define('CV\CV_16U', 2);
+define('CV\CV_16S', 3);
+define('CV\CV_32S', 4);
+define('CV\CV_32F', 5);
+define('CV\CV_64F', 6);
+
+define('CV\CV_8UC1', 0);
+define('CV\CV_8SC1', 1);
+define('CV\CV_16UC1', 2);
+define('CV\CV_16SC1', 3);
+define('CV\CV_32SC1', 4);
+define('CV\CV_32FC1', 5);
+define('CV\CV_64FC1', 6);
+
+define('CV\CV_8UC2', 8);
+define('CV\CV_8SC2', 9);
+define('CV\CV_16UC2', 10);
+define('CV\CV_16SC2', 11);
+define('CV\CV_32SC2', 12);
+define('CV\CV_32FC2', 13);
+define('CV\CV_64FC2', 14);
+
+define('CV\CV_8UC3', 16);
+define('CV\CV_8SC3', 17);
+define('CV\CV_16UC3', 18);
+define('CV\CV_16SC3', 19);
+define('CV\CV_32SC3', 20);
+define('CV\CV_32FC3', 21);
+define('CV\CV_64FC3', 22);
+
+define('CV\CV_8UC4', 24);
+define('CV\CV_8SC4', 25);
+define('CV\CV_16UC4', 26);
+define('CV\CV_16SC4', 27);
+define('CV\CV_32SC4', 28);
+define('CV\CV_32FC4', 29);
+define('CV\CV_64FC4', 30);
+
+define('CV\COLOR_BGR2BGRA', 0);
+define('CV\COLOR_RGB2RGBA', 0);
+define('CV\COLOR_BGRA2BGR', 1);
+define('CV\COLOR_RGBA2RGB', 1);
+define('CV\COLOR_BGR2RGBA', 2);
+define('CV\COLOR_RGB2BGRA', 2);
+define('CV\COLOR_RGBA2BGR', 3);
+define('CV\COLOR_BGRA2RGB', 3);
+define('CV\COLOR_BGR2RGB', 4);
+define('CV\COLOR_RGB2BGR', 4);
+define('CV\COLOR_BGRA2RGBA', 5);
+define('CV\COLOR_RGBA2BGRA', 5);
 define('CV\COLOR_BGR2GRAY', 6);
 define('CV\COLOR_RGB2GRAY', 7);
+define('CV\COLOR_GRAY2BGR', 8);
+define('CV\COLOR_GRAY2RGB', 8);
+define('CV\COLOR_GRAY2BGRA', 9);
+define('CV\COLOR_GRAY2RGBA', 9);
+define('CV\COLOR_BGRA2GRAY', 10);
+define('CV\COLOR_RGBA2GRAY', 11);
+define('CV\COLOR_BGR2BGR565', 12);
+define('CV\COLOR_RGB2BGR565', 13);
+define('CV\COLOR_BGR5652BGR', 14);
+define('CV\COLOR_BGR5652RGB', 15);
+define('CV\COLOR_BGRA2BGR565', 16);
+define('CV\COLOR_RGBA2BGR565', 17);
+define('CV\COLOR_BGR5652BGRA', 18);
+define('CV\COLOR_BGR5652RGBA', 19);
+define('CV\COLOR_GRAY2BGR565', 20);
+define('CV\COLOR_BGR5652GRAY', 21);
+define('CV\COLOR_BGR2BGR555', 22);
+define('CV\COLOR_RGB2BGR555', 23);
+define('CV\COLOR_BGR5552BGR', 24);
+define('CV\COLOR_BGR5552RGB', 25);
+define('CV\COLOR_BGRA2BGR555', 26);
+define('CV\COLOR_RGBA2BGR555', 27);
+define('CV\COLOR_BGR5552BGRA', 28);
+define('CV\COLOR_BGR5552RGBA', 29);
+define('CV\COLOR_GRAY2BGR555', 30);
+define('CV\COLOR_BGR5552GRAY', 31);
+define('CV\COLOR_BGR2XYZ', 32);
+define('CV\COLOR_RGB2XYZ', 33);
+define('CV\COLOR_XYZ2BGR', 34);
+define('CV\COLOR_XYZ2RGB', 35);
+define('CV\COLOR_BGR2YCrCb', 36);
+define('CV\COLOR_RGB2YCrCb', 37);
+define('CV\COLOR_YCrCb2BGR', 38);
+define('CV\COLOR_YCrCb2RGB', 39);
+define('CV\COLOR_BGR2HSV', 40);
+define('CV\COLOR_RGB2HSV', 41);
+define('CV\COLOR_BGR2Lab', 44);
+define('CV\COLOR_RGB2Lab', 45);
+define('CV\COLOR_BGR2Luv', 50);
+define('CV\COLOR_RGB2Luv', 51);
+define('CV\COLOR_BGR2HLS', 52);
+define('CV\COLOR_RGB2HLS', 53);
+define('CV\COLOR_HSV2BGR', 54);
+define('CV\COLOR_HSV2RGB', 55);
+define('CV\COLOR_Lab2BGR', 56);
+define('CV\COLOR_Lab2RGB', 57);
+define('CV\COLOR_Luv2BGR', 58);
+define('CV\COLOR_Luv2RGB', 59);
+define('CV\COLOR_HLS2BGR', 60);
+define('CV\COLOR_HLS2RGB', 61);
+define('CV\COLOR_BGR2HSV_FULL', 66);
+define('CV\COLOR_RGB2HSV_FULL', 67);
+define('CV\COLOR_BGR2HLS_FULL', 68);
+define('CV\COLOR_RGB2HLS_FULL', 69);
+define('CV\COLOR_HSV2BGR_FULL', 70);
+define('CV\COLOR_HSV2RGB_FULL', 71);
+define('CV\COLOR_HLS2BGR_FULL', 72);
+define('CV\COLOR_HLS2RGB_FULL', 73);
+define('CV\COLOR_LBGR2Lab', 74);
+define('CV\COLOR_LRGB2Lab', 75);
+define('CV\COLOR_LBGR2Luv', 76);
+define('CV\COLOR_LRGB2Luv', 77);
+define('CV\COLOR_Lab2LBGR', 78);
+define('CV\COLOR_Lab2LRGB', 79);
+define('CV\COLOR_Luv2LBGR', 80);
+define('CV\COLOR_Luv2LRGB', 81);
+define('CV\COLOR_BGR2YUV', 82);
+define('CV\COLOR_RGB2YUV', 83);
+define('CV\COLOR_YUV2BGR', 84);
+define('CV\COLOR_YUV2RGB', 85);
+define('CV\COLOR_YUV2RGB_NV12', 90);
+define('CV\COLOR_YUV2BGR_NV12', 91);
+define('CV\COLOR_YUV2RGB_NV21', 92);
+define('CV\COLOR_YUV2BGR_NV21', 93);
+define('CV\COLOR_YUV420sp2RGB', 92);
+define('CV\COLOR_YUV420sp2BGR', 93);
+define('CV\COLOR_YUV2RGBA_NV12', 94);
+define('CV\COLOR_YUV2BGRA_NV12', 95);
+define('CV\COLOR_YUV2RGBA_NV21', 96);
+define('CV\COLOR_YUV2BGRA_NV21', 97);
+define('CV\COLOR_YUV420sp2RGBA', 96);
+define('CV\COLOR_YUV420sp2BGRA', 97);
+define('CV\COLOR_YUV2RGB_YV12', 98);
+define('CV\COLOR_YUV2BGR_YV12', 99);
+define('CV\COLOR_YUV2RGB_IYUV', 100);
+define('CV\COLOR_YUV2BGR_IYUV', 101);
+define('CV\COLOR_YUV2RGB_I420', 100);
+define('CV\COLOR_YUV2BGR_I420', 101);
+define('CV\COLOR_YUV420p2RGB', 98);
+define('CV\COLOR_YUV420p2BGR', 99);
+define('CV\COLOR_YUV2RGBA_YV12', 102);
+define('CV\COLOR_YUV2BGRA_YV12', 103);
+define('CV\COLOR_YUV2RGBA_IYUV', 104);
+define('CV\COLOR_YUV2BGRA_IYUV', 105);
+define('CV\COLOR_YUV2RGBA_I420', 104);
+define('CV\COLOR_YUV2BGRA_I420', 105);
+define('CV\COLOR_YUV420p2RGBA', 102);
+define('CV\COLOR_YUV420p2BGRA', 103);
+define('CV\COLOR_YUV2GRAY_420', 106);
+define('CV\COLOR_YUV2GRAY_NV21', 420);
+define('CV\COLOR_YUV2GRAY_NV12', 420);
+define('CV\COLOR_YUV2GRAY_YV12', 420);
+define('CV\COLOR_YUV2GRAY_IYUV', 420);
+define('CV\COLOR_YUV2GRAY_I420', 420);
+define('CV\COLOR_YUV420sp2GRAY', 420);
+define('CV\COLOR_YUV420p2GRAY', 420);
+define('CV\COLOR_YUV2RGB_UYVY', 107);
+define('CV\COLOR_YUV2BGR_UYVY', 108);
+define('CV\COLOR_YUV2RGB_Y422', 107);
+define('CV\COLOR_YUV2BGR_Y422', 108);
+define('CV\COLOR_YUV2RGB_UYNV', 107);
+define('CV\COLOR_YUV2BGR_UYNV', 108);
+define('CV\COLOR_YUV2RGBA_UYVY', 111);
+define('CV\COLOR_YUV2BGRA_UYVY', 112);
+define('CV\COLOR_YUV2RGBA_Y422', 111);
+define('CV\COLOR_YUV2BGRA_Y422', 112);
+define('CV\COLOR_YUV2RGBA_UYNV', 111);
+define('CV\COLOR_YUV2BGRA_UYNV', 112);
+define('CV\COLOR_YUV2RGB_YUY2', 115);
+define('CV\COLOR_YUV2BGR_YUY2', 116);
+define('CV\COLOR_YUV2RGB_YVYU', 117);
+define('CV\COLOR_YUV2BGR_YVYU', 118);
+define('CV\COLOR_YUV2RGB_YUYV', 115);
+define('CV\COLOR_YUV2BGR_YUYV', 116);
+define('CV\COLOR_YUV2RGB_YUNV', 115);
+define('CV\COLOR_YUV2BGR_YUNV', 116);
+define('CV\COLOR_YUV2RGBA_YUY2', 119);
+define('CV\COLOR_YUV2BGRA_YUY2', 120);
+define('CV\COLOR_YUV2RGBA_YVYU', 121);
+define('CV\COLOR_YUV2BGRA_YVYU', 122);
+define('CV\COLOR_YUV2RGBA_YUYV', 119);
+define('CV\COLOR_YUV2BGRA_YUYV', 120);
+define('CV\COLOR_YUV2RGBA_YUNV', 119);
+define('CV\COLOR_YUV2BGRA_YUNV', 120);
+define('CV\COLOR_YUV2GRAY_UYVY', 123);
+define('CV\COLOR_YUV2GRAY_YUY2', 124);
+define('CV\COLOR_YUV2GRAY_Y422', 123);
+define('CV\COLOR_YUV2GRAY_UYNV', 123);
+define('CV\COLOR_YUV2GRAY_YVYU', 124);
+define('CV\COLOR_YUV2GRAY_YUYV', 124);
+define('CV\COLOR_YUV2GRAY_YUNV', 124);
+define('CV\COLOR_RGBA2mRGBA', 125);
+define('CV\COLOR_mRGBA2RGBA', 126);
+define('CV\COLOR_RGB2YUV_I420', 127);
+define('CV\COLOR_BGR2YUV_I420', 128);
+define('CV\COLOR_RGB2YUV_IYUV', 127);
+define('CV\COLOR_BGR2YUV_IYUV', 128);
+define('CV\COLOR_RGBA2YUV_I420', 129);
+define('CV\COLOR_BGRA2YUV_I420', 130);
+define('CV\COLOR_RGBA2YUV_IYUV', 129);
+define('CV\COLOR_BGRA2YUV_IYUV', 130);
+define('CV\COLOR_RGB2YUV_YV12', 131);
+define('CV\COLOR_BGR2YUV_YV12', 132);
+define('CV\COLOR_RGBA2YUV_YV12', 133);
+define('CV\COLOR_BGRA2YUV_YV12', 134);
+define('CV\COLOR_BayerBG2BGR', 46);
+define('CV\COLOR_BayerGB2BGR', 47);
+define('CV\COLOR_BayerRG2BGR', 48);
+define('CV\COLOR_BayerGR2BGR', 49);
+define('CV\COLOR_BayerBG2RGB', 48);
+define('CV\COLOR_BayerGB2RGB', 49);
+define('CV\COLOR_BayerRG2RGB', 46);
+define('CV\COLOR_BayerGR2RGB', 47);
+define('CV\COLOR_BayerBG2GRAY', 86);
+define('CV\COLOR_BayerGB2GRAY', 87);
+define('CV\COLOR_BayerRG2GRAY', 88);
+define('CV\COLOR_BayerGR2GRAY', 89);
+define('CV\COLOR_BayerBG2BGR_VNG', 62);
+define('CV\COLOR_BayerGB2BGR_VNG', 63);
+define('CV\COLOR_BayerRG2BGR_VNG', 64);
+define('CV\COLOR_BayerGR2BGR_VNG', 65);
+define('CV\COLOR_BayerBG2RGB_VNG', 64);
+define('CV\COLOR_BayerGB2RGB_VNG', 65);
+define('CV\COLOR_BayerRG2RGB_VNG', 62);
+define('CV\COLOR_BayerGR2RGB_VNG', 63);
+define('CV\COLOR_BayerBG2BGR_EA', 135);
+define('CV\COLOR_BayerGB2BGR_EA', 136);
+define('CV\COLOR_BayerRG2BGR_EA', 137);
+define('CV\COLOR_BayerGR2BGR_EA', 138);
+define('CV\COLOR_BayerBG2RGB_EA', 137);
+define('CV\COLOR_BayerGB2RGB_EA', 138);
+define('CV\COLOR_BayerRG2RGB_EA', 135);
+define('CV\COLOR_BayerGR2RGB_EA', 136);
+define('CV\COLOR_BayerBG2BGRA', 139);
+define('CV\COLOR_BayerGB2BGRA', 140);
+define('CV\COLOR_BayerRG2BGRA', 141);
+define('CV\COLOR_BayerGR2BGRA', 142);
+define('CV\COLOR_BayerBG2RGBA', 141);
+define('CV\COLOR_BayerGB2RGBA', 142);
+define('CV\COLOR_BayerRG2RGBA', 139);
+define('CV\COLOR_BayerGR2RGBA', 140);
+define('CV\COLOR_COLORCVT_MAX', 143);
 
 namespace CV\Face;
 use CV\Mat;
