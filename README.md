@@ -14,7 +14,7 @@
 
 ![upscale_image_x2_by_dnn_waifu2x.png](https://raw.githubusercontent.com/php-opencv/php-opencv-examples/master/images/icon_64x64.png) ![icon_64x64.png](https://raw.githubusercontent.com/php-opencv/php-opencv-examples/master/results/upscale_image_x2_by_dnn_waifu2x.png)
 
-- [categorize image by dnn mobilenet](https://github.com/php-opencv/php-opencv-examples/blob/master/categorize_image_by_dnn_mobilenet.php)
+- [categorize image by mobilenet](https://github.com/php-opencv/php-opencv-examples/blob/master/categorize_image_by_dnn_mobilenet.php)
 
 ![cat.jpg](https://raw.githubusercontent.com/php-opencv/php-opencv-examples/master/images/cat.jpg)
 Results: 87%: Egyptian cat, 4%: tabby, tabby cat, 2%: tiger cat
