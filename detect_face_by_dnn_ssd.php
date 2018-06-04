@@ -31,4 +31,4 @@ for ($i = 0; $i < $r->shape[2]; $i++) {
 
 $data = [];
 
-imwrite("results/detect_face_by_dnn_ssd.jpg", $src);
+imwrite("results/_detect_face_by_dnn_ssd.jpg", $src);
