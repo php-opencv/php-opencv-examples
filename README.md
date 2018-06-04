@@ -11,10 +11,13 @@
 - [recognize face by LBPH algorithm](https://github.com/php-opencv/php-opencv-examples/blob/master/recognize_face_by_lbph.php)
 
 - [upscale image x2 by waifu2x](https://github.com/php-opencv/php-opencv-examples/blob/master/upscale_image_x2_by_dnn_waifu2x.php)
+
 ![upscale_image_x2_by_dnn_waifu2x.png](https://raw.githubusercontent.com/php-opencv/php-opencv-examples/master/images/icon_64x64.png) ![icon_64x64.png](https://raw.githubusercontent.com/php-opencv/php-opencv-examples/master/results/upscale_image_x2_by_dnn_waifu2x.png)
 
 - [categorize image by dnn mobilenet](https://github.com/php-opencv/php-opencv-examples/blob/master/categorize_image_by_dnn_mobilenet.php)
-![cat.jpg](https://raw.githubusercontent.com/php-opencv/php-opencv-examples/master/images/cat.jpg) Results: 87%: Egyptian cat, 4%: tabby, tabby cat, 2%: tiger cat
+
+![cat.jpg](https://raw.githubusercontent.com/php-opencv/php-opencv-examples/master/images/cat.jpg)
+Results: 87%: Egyptian cat, 4%: tabby, tabby cat, 2%: tiger cat
 
 #### Helper for autocomplete and highlighting in your IDE
 - [phpdoc file](https://github.com/php-opencv/php-opencv-examples/blob/master/phpdoc.php)
