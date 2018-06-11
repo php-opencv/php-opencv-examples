@@ -9,10 +9,10 @@ $src = imread("images/cat.jpg"); // opencv loads image to matrix with BGR order
 $src = cvtColor($src, CV\COLOR_BGR2RGB); // convert BGR to RGB
 //var_export($src);
 
-$blob = \CV\DNN\Net::blobFromImage($src, 0.017, new \CV\Size(224,224), new Scalar(103.94, 116.78, 123.68)); // convert image to 4 dimensions matrix
+$blob = \CV\DNN\blobFromImage($src, 0.017, new \CV\Size(224,224), new Scalar(103.94, 116.78, 123.68)); // convert image to 4 dimensions matrix
 //var_export($blob);
 
-$net = \CV\DNN\Net::readNetFromCaffe('models/mobilenet/mobilenet_deploy.prototxt', 'models/mobilenet/mobilenet.caffemodel');
+$net = \CV\DNN\readNetFromCaffe('models/mobilenet/mobilenet_deploy.prototxt', 'models/mobilenet/mobilenet.caffemodel');
 
 $net->setInput($blob, "");
 

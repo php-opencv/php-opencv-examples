@@ -180,9 +180,9 @@ class Mat {
      * @param array $idx
      * @param int $channel
      * @param null $value
-     * @return int|null
+     * @return Mat $mat
      */
-    public function atIdx(array $idx, int $channel, $value = null) {
+    public function atIdx(array $idx, int $channel = 1, $value = null) {
 
     }
 
@@ -991,27 +991,6 @@ use CV\Scalar;
 use CV\Size;
 
 class Net {
-    public static function blobFromImage(Mat $image, float $scalefactor = 1.0, Size $size = null, Scalar $mean = null, $swapRB = true, $crop = true) {
-        return new Mat();
-    }
-
-    /**
-     * @param string $filename
-     * @return Net
-     */
-    public static function readNetFromTorch(string $filename) {
-
-    }
-
-    /**
-     * @param string $protoFilename
-     * @param string $modelFilename
-     * @return Net
-     */
-    public static function readNetFromCaffe(string $protoFilename, $modelFilename) {
-
-    }
-
     /**
      * @param Mat $blob
      * @param string $name
@@ -1027,4 +1006,43 @@ class Net {
     public function forward() {
 
     }
+}
+
+/**
+ * @param Mat $image
+ * @param float $scalefactor
+ * @param Size $size
+ * @param Scalar $mean
+ * @param bool $swapRB
+ * @param bool $crop
+ * @return Mat
+ */
+function blobFromImage(Mat $image, float $scalefactor = 1.0, Size $size, Scalar $mean, $swapRB = true, $crop = true) {
+    return new Mat();
+}
+
+/**
+ * @param string $filename
+ * @return Net
+ */
+function readNetFromTorch(string $filename) {
+
+}
+
+/**
+ * @param string $protoFilename
+ * @param string $modelFilename
+ * @return Net
+ */
+function readNetFromCaffe(string $protoFilename, $modelFilename) {
+
+}
+
+/**
+ * @param string $protoFilename
+ * @param string $modelFilename
+ * @return Net
+ */
+function readNetFromTensorflow(string $model, $config) {
+
 }
