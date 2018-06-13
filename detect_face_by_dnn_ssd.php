@@ -24,7 +24,12 @@ for ($i = 0; $i < $r->shape[2]; $i++) {
     $confidence = $r->atIdx([0,0,$i,2]);
     //var_export($confidence);echo "\n";
     if ($confidence > 0.5) {
-        rectangle($src, $r->atIdx([0,0,$i,3])*$src->cols, $r->atIdx([0,0,$i,4])*$src->rows, $r->atIdx([0,0,$i,5])*$src->cols, $r->atIdx([0,0,$i,6])*$src->rows, $scalar, 3);
+        $startX = $r->atIdx([0,0,$i,3]) * $src->cols;
+        $startY = $r->atIdx([0,0,$i,4]) * $src->rows;
+        $endX = $r->atIdx([0,0,$i,5]) * $src->cols;
+        $endY = $r->atIdx([0,0,$i,6]) * $src->rows;
+
+        rectangle($src, $startX, $startY, $endX, $endY, $scalar, 3);
     }
 }
 

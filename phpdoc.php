@@ -180,7 +180,7 @@ class Mat {
      * @param array $idx
      * @param int $channel
      * @param null $value
-     * @return Mat $mat
+     * @return int|float $value
      */
     public function atIdx(array $idx, int $channel = 1, $value = null) {
 

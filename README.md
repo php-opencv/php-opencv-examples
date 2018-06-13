@@ -19,6 +19,9 @@
 ![cat.jpg](https://raw.githubusercontent.com/php-opencv/php-opencv-examples/master/images/cat.jpg)
 Results: 87%: Egyptian cat, 4%: tabby, tabby cat, 2%: tiger cat
 
+- [detect objects by dnn mobilenet](https://github.com/php-opencv/php-opencv-examples/blob/master/detect_objects_by_dnn_mobilenet.php)
+![detect_objects_by_dnn_mobilenet.png](https://raw.githubusercontent.com/php-opencv/php-opencv-examples/master/results/detect_objects_by_dnn_mobilenet.png)
+
 #### Helper for autocomplete and highlighting in your IDE
 - [phpdoc file](https://github.com/php-opencv/php-opencv-examples/blob/master/phpdoc.php)
 
