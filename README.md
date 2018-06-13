@@ -17,12 +17,12 @@
 
 ![upscale_image_x2_by_dnn_waifu2x.png](https://raw.githubusercontent.com/php-opencv/php-opencv-examples/master/images/icon_64x64.png) ![icon_64x64.png](https://raw.githubusercontent.com/php-opencv/php-opencv-examples/master/results/upscale_image_x2_by_dnn_waifu2x.png)
 
-- [categorize image by mobilenet](https://github.com/php-opencv/php-opencv-examples/blob/master/categorize_image_by_dnn_mobilenet.php)
+- [classify image by pretrained caffe model mobilenet](https://github.com/php-opencv/php-opencv-examples/blob/master/classify_image_by_dnn_mobilenet.php)
 
 ![cat.jpg](https://raw.githubusercontent.com/php-opencv/php-opencv-examples/master/images/cat.jpg)
 Results: 87%: Egyptian cat, 4%: tabby, tabby cat, 2%: tiger cat
 
-- [detect objects by dnn mobilenet](https://github.com/php-opencv/php-opencv-examples/blob/master/detect_objects_by_dnn_mobilenet.php)
+- [detect objects by pretrained tensorflow model mobilenet](https://github.com/php-opencv/php-opencv-examples/blob/master/detect_objects_by_dnn_mobilenet.php)
 
 ![detect_objects_by_dnn_mobilenet.png](https://raw.githubusercontent.com/php-opencv/php-opencv-examples/master/results/detect_objects_by_dnn_mobilenet.png)
 
