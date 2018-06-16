@@ -12,7 +12,7 @@ equalizeHist($gray, $gray);
 // face by lbpcascade_frontalface
 $faceClassifier = new CascadeClassifier();
 $faceClassifier->load('models/lbpcascades/lbpcascade_frontalface.xml');
-$faces = null;
+
 $faceClassifier->detectMultiScale($gray, $faces);
 //var_export($faces);
 

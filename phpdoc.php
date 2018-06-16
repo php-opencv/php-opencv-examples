@@ -936,21 +936,46 @@ class LBPHFaceRecognizer {
     }
 
     /**
-     * @param array $mats
+     * @param array $faces
      * @param array $labels
      * @return null
      */
-    public function train(array $mats, array $labels) {
+    public function train(array $faces, array $labels) {
         return null;
     }
 
     /**
-     * @param Mat $mat
+     * @param Mat $face
      * @param float $confidence
      * @return int $label
      */
-    public function predict(\CV\Mat $mat, float &$confidence) {
+    public function predict(\CV\Mat $face, float &$confidence) {
         return $label = 1;
+    }
+
+    /**
+     * @param array $faces
+     * @param array $labels
+     * @return null
+     */
+    public function update(array $faces, array $labels) {
+        return null;
+    }
+
+    /**
+     * @param string $filename
+     * @return null
+     */
+    public function read(string $filename) {
+        return null;
+    }
+
+    /**
+     * @param string $filename
+     * @return null
+     */
+    public function write(string $filename) {
+        return null;
     }
 }
 
