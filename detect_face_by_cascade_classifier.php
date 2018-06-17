@@ -7,7 +7,6 @@ use const CV\{COLOR_BGR2GRAY};
 
 $src = imread("images/faces.jpg");
 $gray = cvtColor($src, COLOR_BGR2GRAY);
-equalizeHist($gray, $gray);
 
 // face by lbpcascade_frontalface
 $faceClassifier = new CascadeClassifier();
@@ -40,4 +39,4 @@ if ($eyes) {
 }*/
 
 
-$src = imwrite("results/_detect_face_by_cascade_classifier.jpg", $src);
+imwrite("results/_detect_face_by_cascade_classifier.jpg", $src);

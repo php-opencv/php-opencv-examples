@@ -150,7 +150,7 @@ class Mat {
 
     /**
      * @param array $rect
-     * @return Mat $mat
+     * @return Mat $image
      */
     public function getImageROI(Rect $rect) {
 
@@ -412,7 +412,7 @@ class CascadeClassifier {
     }
 
     /**
-     * @param Mat $mat
+     * @param Mat $image
      * @param array $objects
      * @param float $scale_factor
      * @param int $min_neighbors
@@ -421,7 +421,7 @@ class CascadeClassifier {
      * @param Size|null $maxSize
      * @return null
      */
-    public function detectMultiScale(Mat $mat, array &$rects, float $scale_factor = 1.1, int $min_neighbors = 3, int $flags = 0, Size $minSize = null, Size $maxSize = null) {
+    public function detectMultiScale(Mat $image, array &$rects, float $scale_factor = 1.1, int $min_neighbors = 3, int $flags = 0, Size $minSize = null, Size $maxSize = null) {
         return null;
     }
 }
@@ -437,24 +437,24 @@ function imread(string $filename, $flags = null) {
 
 /**
  * @param string $filename
- * @param Mat $mat
+ * @param Mat $image
  * @return true|null
  */
-function imwrite(string $filename, Mat $mat) {
+function imwrite(string $filename, Mat $image) {
 
 }
 
 /**
- * @param Mat $mat
+ * @param Mat $image
  * @param $code
  * @return Mat|null
  */
-function cvtColor(Mat $mat, $code, $dstCn = null) {
+function cvtColor(Mat $image, $code, $dstCn = null) {
 
 }
 
 /**
- * @param Mat $mat
+ * @param Mat $image
  * @param Point $startPoint
  * @param Point $endPoint
  * @param Scalar $color
@@ -463,12 +463,12 @@ function cvtColor(Mat $mat, $code, $dstCn = null) {
  * @param int $shift
  * @return null
  */
-function line(Mat $mat, Point $startPoint, Point $endPoint, Scalar $color, int $thickness = 1, int $lineType = null, int $shift = 0) {
+function line(Mat $image, Point $startPoint, Point $endPoint, Scalar $color, int $thickness = 1, int $lineType = null, int $shift = 0) {
     return null;
 }
 
 /**
- * @param Mat $mat
+ * @param Mat $image
  * @param Point $point
  * @param int $radius
  * @param Scalar $color
@@ -477,12 +477,12 @@ function line(Mat $mat, Point $startPoint, Point $endPoint, Scalar $color, int $
  * @param int $shift
  * @return null
  */
-function circle(Mat $mat, Point $point, int $radius, Scalar $color, int $thickness = 1, int $lineType = null, int $shift = 0) {
+function circle(Mat $image, Point $point, int $radius, Scalar $color, int $thickness = 1, int $lineType = null, int $shift = 0) {
     return null;
 }
 
 /**
- * @param Mat $mat
+ * @param Mat $image
  * @param Point $point
  * @param Size $size
  * @param int $angle
@@ -494,12 +494,12 @@ function circle(Mat $mat, Point $point, int $radius, Scalar $color, int $thickne
  * @param int $shift
  * @return null
  */
-function ellipse(Mat $mat, Point $point, Size $size, int $angle, int $startAngle, int $endAngle, Scalar $color, int $thickness = 1, int $lineType = null, int $shift = 0) {
+function ellipse(Mat $image, Point $point, Size $size, int $angle, int $startAngle, int $endAngle, Scalar $color, int $thickness = 1, int $lineType = null, int $shift = 0) {
     return null;
 }
 
 /**
- * @param Mat $mat
+ * @param Mat $image
  * @param int $startX
  * @param int $startY
  * @param int $endX
@@ -510,12 +510,12 @@ function ellipse(Mat $mat, Point $point, Size $size, int $angle, int $startAngle
  * @param int $shift
  * @return null
  */
-function rectangle(Mat $mat, int $startX, int $startY, int $endX, int $endY, Scalar $color, int $thickness = 1, int $lineType = null, int $shift = 0) {
+function rectangle(Mat $image, int $startX, int $startY, int $endX, int $endY, Scalar $color, int $thickness = 1, int $lineType = null, int $shift = 0) {
     return null;
 }
 
 /**
- * @param Mat $mat
+ * @param Mat $image
  * @param Point $startPoint
  * @param Point $endPoint
  * @param Scalar $color
@@ -524,12 +524,12 @@ function rectangle(Mat $mat, int $startX, int $startY, int $endX, int $endY, Sca
  * @param int $shift
  * @return null
  */
-function rectangleByPoint(Mat $mat, Point $startPoint, Point $endPoint, Scalar $color, int $thickness = 1, int $lineType = null, int $shift = 0) {
+function rectangleByPoint(Mat $image, Point $startPoint, Point $endPoint, Scalar $color, int $thickness = 1, int $lineType = null, int $shift = 0) {
     return null;
 }
 
 /**
- * @param Mat $mat
+ * @param Mat $image
  * @param Rect $rect
  * @param Scalar $color
  * @param int $thickness
@@ -537,12 +537,12 @@ function rectangleByPoint(Mat $mat, Point $startPoint, Point $endPoint, Scalar $
  * @param int $shift
  * @return null
  */
-function rectangleByRect(Mat $mat, Rect $rect, Scalar $color, int $thickness = 1, int $lineType = null, int $shift = 0) {
+function rectangleByRect(Mat $image, Rect $rect, Scalar $color, int $thickness = 1, int $lineType = null, int $shift = 0) {
     return null;
 }
 
 /**
- * @param Mat $mat
+ * @param Mat $image
  * @param string $text
  * @param Point $point
  * @param int $fontFace
@@ -553,21 +553,21 @@ function rectangleByRect(Mat $mat, Rect $rect, Scalar $color, int $thickness = 1
  * @param bool $bottomLeftOrigin
  * @return null
  */
-function putText(Mat $mat, string $text, Point $point, int $fontFace, float $fontScale, Scalar $color, int $thickness = 1, int $lineType = null, bool $bottomLeftOrigin = false) {
+function putText(Mat $image, string $text, Point $point, int $fontFace, float $fontScale, Scalar $color, int $thickness = 1, int $lineType = null, bool $bottomLeftOrigin = false) {
     return null;
 }
 
 /**
- * @param Mat $mat
+ * @param Mat $image
  * @param Mat $dst
  * @return null
  */
-function equalizeHist(Mat $mat, Mat &$dst) {
+function equalizeHist(Mat $image, Mat &$dst) {
     return null;
 }
 
 /**
- * @param Mat $mat
+ * @param Mat $image
  * @param Mat $dst
  * @param Size $size
  * @param float $fx
@@ -575,7 +575,7 @@ function equalizeHist(Mat $mat, Mat &$dst) {
  * @param int $interpolation
  * @return null
  */
-function resize(Mat $mat, Mat &$dst, Size $size, float $fx = 0, float $fy = 0, int $interpolation = 1) {
+function resize(Mat $image, Mat &$dst, Size $size, float $fx = 0, float $fy = 0, int $interpolation = 1) {
     return null;
 }
 
@@ -1000,12 +1000,12 @@ class FacemarkLBF {
     }
 
     /**
-     * @param Mat $mat
+     * @param Mat $image
      * @param array $faces
      * @param array $landmarks
      * @return null
      */
-    public function fit(Mat $mat, array $faces, array &$landmarks) {
+    public function fit(Mat $image, array $faces, array &$landmarks) {
         return null;
     }
 }
