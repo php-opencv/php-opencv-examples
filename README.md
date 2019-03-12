@@ -35,6 +35,11 @@ Results: 87%: Egyptian cat, 4%: tabby, tabby cat, 2%: tiger cat
 - [Installation on ubuntu](https://github.com/php-opencv/php-opencv-examples/wiki/Installation-on-ubuntu)
 - [installation via docker](https://github.com/php-opencv/php-opencv-examples/wiki/installation-via-docker)
 
+#### Requirements
+- PHP 7.0/7.1/7.2
+- OpenCV 3.4+
+- [php-opencv](https://github.com/php-opencv/php-opencv)
+
 #### Thanks
 - author of examples and contributor of library -> https://github.com/morozovsk
 - send your PR for library there -> https://github.com/php-opencv/php-opencv
