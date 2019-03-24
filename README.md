@@ -32,8 +32,8 @@ Results: 87%: Egyptian cat, 4%: tabby, tabby cat, 2%: tiger cat
 - [phpdoc file](https://github.com/php-opencv/php-opencv-examples/blob/master/phpdoc.php)
 
 #### Installation
-- [Installation opencv on ubuntu/centos](https://github.com/php-opencv/php-opencv/wiki/Installation)
-- [installation opencv-examples via docker](https://github.com/php-opencv/php-opencv-examples/wiki/installation-via-docker)
+- [opencv](https://github.com/php-opencv/php-opencv/wiki/Installation) on ubuntu/centos
+- [opencv-examples](https://github.com/php-opencv/php-opencv-examples/wiki/installation-via-docker) via docker
 
 #### Requirements
 - PHP 7.0 / 7.1 / 7.2
