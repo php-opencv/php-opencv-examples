@@ -36,8 +36,8 @@ Results: 87%: Egyptian cat, 4%: tabby, tabby cat, 2%: tiger cat
 - [installation via docker](https://github.com/php-opencv/php-opencv-examples/wiki/installation-via-docker)
 
 #### Requirements
-- PHP 7.0/7.1/7.2
-- OpenCV 3.4+
+- PHP 7.0 / 7.1 / 7.2
+- OpenCV 4.0.0+
 - [php-opencv](https://github.com/php-opencv/php-opencv)
 
 #### Thanks
