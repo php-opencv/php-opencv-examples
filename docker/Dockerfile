@@ -6,10 +6,11 @@ RUN apt update && export DEBIAN_FRONTEND=noninteractive && apt install -y php-cl
 
 RUN echo 1
 
-RUN wget https://raw.githubusercontent.com/php-opencv/php-opencv-packages/master/opencv_3.4_amd64.deb && dpkg -i opencv_3.4_amd64.deb && rm opencv_3.4_amd64.deb
+#RUN wget https://raw.githubusercontent.com/php-opencv/php-opencv-packages/master/opencv_3.4_amd64.deb && dpkg -i opencv_3.4_amd64.deb && rm opencv_3.4_amd64.deb
+RUN wget https://raw.githubusercontent.com/php-opencv/php-opencv-packages/master/opencv_4.0.1_amd64.deb && dpkg -i opencv_4.0.1_amd64.deb && rm opencv_4.0.1_amd64.deb
 
 #RUN wget https://raw.githubusercontent.com/php-opencv/php-opencv-packages/master/php-opencv_7.1-3.4_amd64.deb && dpkg -i php-opencv_7.1-3.4_amd64.deb && rm php-opencv_7.1-3.4_amd64.deb
-RUN wget https://raw.githubusercontent.com/php-opencv/php-opencv-packages/master/php-opencv_7.2-3.4_amd64.deb && dpkg -i php-opencv_7.2-3.4_amd64.deb && rm php-opencv_7.2-3.4_amd64.deb
+RUN wget https://raw.githubusercontent.com/php-opencv/php-opencv-packages/master/php-opencv_7.2-4.0.1_amd64.deb && dpkg -i php-opencv_7.2-4.0.1_amd64.deb && rm php-opencv_7.2-4.0.1_amd64.deb
 
 #RUN echo "extension=opencv.so" > /etc/php/7.1/cli/conf.d/opencv.ini
 RUN echo "extension=opencv.so" > /etc/php/7.2/cli/conf.d/opencv.ini

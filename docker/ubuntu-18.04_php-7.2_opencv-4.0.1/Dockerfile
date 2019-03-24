@@ -13,10 +13,10 @@ RUN git clone https://github.com/php-opencv/php-opencv.git
 
 #RUN ldconfig
 
-RUN cd php-opencv && phpize && ./configure --with-php-config=/usr/bin/php-config && make && make install && make test
-
-RUN echo "extension=opencv.so" > /etc/php/7.2/cli/conf.d/opencv.ini
+RUN cd php-opencv && phpize && ./configure --with-php-config=/usr/bin/php-config && make
 
 #build deb package:
 
-RUN cd php-opencv && checkinstall --default --type debian --install=no --pkgname php-opencv --pkgversion "7.2-4.0.1" --pkglicense "Apache 2.0" --pakdir ~ --maintainer "php-opencv" --addso --autodoinst make install
+RUN cd php-opencv && checkinstall --default --type debian --install=no --pkgname php-opencv --pkgversion "7.2-4.0.1" --pkglicense "Apache 2.0" --pakdir ~ --maintainer "php-opencv" --addso --autodoinst make install && make test
+
+RUN echo "extension=opencv.so" > /etc/php/7.2/cli/conf.d/opencv.ini
