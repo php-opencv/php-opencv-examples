@@ -30,6 +30,7 @@ Results: 87%: Egyptian cat, 4%: tabby, tabby cat, 2%: tiger cat
 
 #### Helper for autocomplete and highlighting in your IDE
 - [phpdoc file](https://github.com/php-opencv/php-opencv-examples/blob/master/phpdoc.php)
+- [php-opencv-ide-helper](https://github.com/hihozhou/php-opencv-ide-helper)
 
 #### Installation
 - [opencv](https://github.com/php-opencv/php-opencv/wiki/Installation) on ubuntu/centos
