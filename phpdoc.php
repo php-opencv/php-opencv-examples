@@ -623,54 +623,407 @@ function copyMakeBorder(Mat $mat, Mat &$dst, int $top, int $bottom, int $left, i
     return null;
 }
 
-function createTrackbar() {}
-function destroyWindow() {}
-function getOptimalDFTSize() {}
-function getTrackBarPos() {}
-function getTickCount() {}
-function getTickFrequency() {}
-function setMouseCallback() {}
-function boundingRect() {}
+/**
+ * @param string $trackbarname
+ * @param string $winname
+ * @param int $value
+ * @param int $count
+ * @param callable|null $onChange
+ */
+function createTrackbar(string $trackbarname, string $winname, int $value, int $count, callable $onChange = null)
+{
 
-function CV_8UC(int $num) {}
-function CV_8SC(int $num) {}
-function CV_16UC(int $num) {}
-function CV_16SC(int $num) {}
-function CV_32SC(int $num) {}
-function CV_32FC(int $num) {}
-function CV_64FC(int $num) {}
+}
 
-function imshow() {}
-function waitKey() {}
-function moveWindow() {}
-function namedWindow() {}
+/**
+ * @param String $winname
+ */
+function destroyWindow(String $winname)
+{
+
+}
+
+/**
+ * getOptimalDFTSize函数返回给定向量尺寸的傅立叶最优尺寸大小。
+ * 为了提高离散傅立叶变换的运行速度，需要扩充图像，
+ * 而具体扩充多少，就有这个函数来计算得到。
+ *
+ * @param int $vecsize 需要计算最优的原始大小
+ *
+ * @return int 返回最优大小
+ */
+function getOptimalDFTSize(int $vecsize)
+{
+
+}
+
+/**
+ * 获取滑动条的值
+ * @param String $trackbarname 轨迹条的名称
+ * @param String $winname 轨迹条的父窗口名称
+ * @return int
+ */
+function getTrackBarPos(String $trackbarname, String $winname)
+{
+
+}
+
+/**
+ * @return int
+ */
+function getTickCount()
+{
+
+}
+
+/**
+ * @return double
+ */
+function getTickFrequency()
+{
+
+}
+
+/**
+ * @param String $winname
+ * @param null $onMouse
+ */
+function setMouseCallback(String $winname, $onMouse = null)
+{
+
+}
+
+/**
+ * 返回外部矩形边界
+ *
+ * @param array $points point数组
+ *
+ * @return Rect
+ */
+function boundingRect(array $points)
+{
+
+}
+
+/**
+ * @param int $n
+ *
+ * @return int
+ */
+function CV_8UC(int $n)
+{
+
+}
+
+/**
+ * @param int $n
+ *
+ * @return int
+ */
+function CV_8SC(int $n)
+{
+
+}
+
+/**
+ * @param int $n
+ *
+ * @return int
+ */
+function CV_16UC(int $n)
+{
+
+}
+
+/**
+ * @param int $n
+ *
+ * @return int
+ */
+function CV_16SC(int $n)
+{
+
+}
+
+/**
+ * @param int $n
+ *
+ * @return int
+ */
+function CV_32SC(int $n)
+{
+
+}
+
+/**
+ * @param int $n
+ *
+ * @return int
+ */
+function CV_32FC(int $n)
+{
+
+}
+
+/**
+ * @param int $n
+ *
+ * @return int
+ */
+function CV_64FC(int $n)
+{
+
+}
+
+/**
+ * GUI展示图片
+ * @param string $windowName 窗口名称
+ * @param Mat $mat 需要展示的Mat矩阵
+ */
+function imshow(string $windowName, Mat $mat)
+{
+
+}
+
+/**
+ * 等待输入建输出后继续执行，
+ * 如果$sec大于0的等待多少秒，如果为0则一直等待
+ * @param int $sec 单位秒
+ */
+function waitKey(int $sec)
+{
+
+}
+
+/**
+ * 移动窗口
+ * @param string $winname
+ * @param int $x
+ * @param int $y
+ */
+function moveWindow(string $winname, int $x, int $y)
+{
+
+}
+
+/**
+ * 创建窗口
+ * @param string $winname
+ * @param int $flags
+ */
+function namedWindow(string $winname, int $flags = WINDOW_AUTOSIZE)
+{
+
+}
+
+function addWeighted(Mat $src1, float $alpha, Mat $src2, float $beta, float $gamma, Mat &$dst = NULL, int $dtype = -1)
+{
+
+}
+
+function dft(Mat $src, Mat $dst, int $flags = 0, int $nonzeroRows = 0)
+{
+
+}
+
+/**
+ * @param Mat $x
+ * @param Mat $y
+ * @param Mat $dst
+ */
+function magnitude(Mat $x, Mat $y, Mat $dst)
+{
+
+}
+
+/**
+ * @param Mat|Scalar $src1
+ * @param Mat|Scalar $src2
+ * @param Mat|Scalar $dst
+ */
+function add($src1, $src2, $dst)
+{
+
+}
+
+function log() {}
+
+/**
+ * @param Mat $src
+ * @param Mat $dst
+ * @param int $alpha
+ * @param int $beta
+ * @param int $norm_type
+ * @param int $dtype
+ */
+function normalize(Mat $src, Mat $dst, int $alpha = 1, int $beta = 0, int $norm_type, $dtype = -1)
+{
+
+}
+
+function GaussianBlur(Mat $src, Mat $dst, Size $ksize, double $sigmaX, double $sigmaY = 0, $borderType = BORDER_DEFAULT)
+{
+
+}
+
+/**
+ * 膨胀
+ *
+ * @param Mat         $src
+ * @param Mat         $dst
+ * @param Mat         $kernel
+ * @param Point|null  $anchor
+ * @param int         $iterations
+ * @param int         $borderType
+ * @param Scalar|null $borderValue
+ */
+function dilate(Mat $src, Mat $dst, Mat $kernel, Point $anchor = null, int $iterations = 1, int $borderType = BORDER_CONSTANT, Scalar $borderValue = null)
+{
+
+}
+
+/**
+ * 腐蚀
+ *
+ * @param Mat         $src
+ * @param Mat         $dst
+ * @param Mat         $kernel
+ * @param Point|null  $anchor
+ * @param int         $iterations
+ * @param int         $borderType
+ * @param Scalar|null $borderValue
+ */
+function erode(Mat $src, Mat $dst, Mat $kernel, Point $anchor = null, int $iterations = 1, int $borderType = BORDER_CONSTANT, Scalar $borderValue = null)
+{
+
+}
+
+/**
+ * @param Mat        $src        输入的图片
+ * @param Mat        $dst        输出和src一样的size和channel的图片
+ * @param int        $ddepth     原图像的深度，$src->depth()
+ * @param Mat        $kernel     卷积核，是一个单通道浮点型的矩阵，如果你想使用不同的核在不同的通道，那么可以使用函数Split（）将通道分离，再逐个使用核运算
+ * @param Point|null $anchor     核的中心，默认在核的中点处
+ * @param double     $delta      未知用途
+ * @param int        $borderType 未知用途
+ *
+ * @return null
+ */
+function filter2D(Mat $src, Mat &$dst, int $ddepth, Mat $kernel, Point $anchor = null, double $delta = 0, int $borderType = BORDER_DEFAULT)
+{
+
+}
+
+/**
+ * 创建核
+ *
+ * @param int        $shape
+ * @param Size       $ksize
+ * @param Point|null $achor
+ *
+ * @return Mat
+ */
+function getStructuringElement(int $shape, Size $ksize, Point $achor = null)
+{
+
+}
+
+/**
+ * 开闭运算、顶帽、黑帽
+ *
+ * @param Mat         $src
+ * @param Mat         $dst
+ * @param int         $op
+ * @param Mat         $kernel
+ * @param Point|null  $anchor
+ * @param int         $iterations
+ * @param int         $borderType
+ * @param Scalar|null $borderValue
+ */
+function morphologyEx(Mat $src, Mat $dst, int $op, Mat $kernel, Point $anchor = null, int $iterations = 1, int $borderType = BORDER_CONSTANT, Scalar $borderValue = null)
+{
+
+}
+
+function LUT() {}
+
+/**
+ * 漫水填充
+ *
+ * @param Mat         $image
+ * @param Point       $seedPoint
+ * @param Scalar      $newVal
+ * @param Mat|null    $mat
+ * @param Rect|null   $rect
+ * @param Scalar|null $loDiff
+ * @param Scalar|null $upDiff
+ * @param int         $flags
+ */
+function floodFill(Mat $image, Point $seedPoint, Scalar $newVal, Mat $mat = null, Rect $rect = null, Scalar $loDiff = null, Scalar $upDiff = null, int $flags = 4)
+{
+
+}
+
+/**
+ * 自适应阈值化函数
+ *
+ * @param Mat    $src
+ * @param Mat    $dst
+ * @param double $maxValue
+ * @param int    $adaptiveMethod
+ * @param int    $thresholdType
+ * @param int    $blockSize
+ * @param double $C
+ */
+function adaptiveThreshold(Mat $src, Mat $dst, double $maxValue, int $adaptiveMethod, int $thresholdType, int $blockSize, double $C)
+{
+
+}
+
+/**
+ * @param Mat        $image
+ * @param array      $contours
+ * @param int        $mode
+ * @param int        $method
+ * @param Point|null $offset
+ */
+function findContoursWithoutHierarchy(Mat $image, array $contours, int $mode, int $method, Point $offset = null)
+{
+
+}
+
+/**
+ * @param Mat        $image      要绘制轮廓的图像
+ * @param array      $contours   所有输入的轮廓，每个轮廓被保存成一个point二位数组（向量）
+ * @param int        $contourIdx 指定要绘制轮廓的编号，如果是负数，则绘制所有的轮廓
+ * @param Scalar     $color      绘制轮廓所用的颜色
+ * @param int        $thickness  绘制轮廓的线的粗细，如果是负数，则轮廓内部被填充
+ * @param int        $lineType   绘制轮廓的线的连通性
+ * @param array      $hierarchy  关于层级的可选参数，只有绘制部分轮廓时才会用到
+ * @param            $maxLevel   绘制轮廓的最高级别，这个参数只有hierarchy有效的时候才有效
+ *                               maxLevel=0，绘制与输入轮廓属于同一等级的所有轮廓即输入轮廓和与其相邻的轮廓
+ *                               maxLevel=1, 绘制与输入轮廓同一等级的所有轮廓与其子节点。
+ *                               maxLevel=2，绘制与输入轮廓同一等级的所有轮廓与其子节点以及子节点的子节点
+ * @param Point|null $offset
+ */
+function drawContours(Mat $image, array $contours,
+                      int $contourIdx, Scalar $color,
+                      int $thickness = 1, int $lineType = LINE_8,
+                      array $hierarchy = [],
+                      $maxLevel = INT_MAX, Point $offset = null)
+{
+
+}
 
 function fillPoly() {}
-function addWeighted() {}
-function dft() {}
-function magnitude() {}
-function add() {}
-function log() {}
-function normalize() {}
 function absdiff() {}
 function blur() {}
-function GaussianBlur() {}
 function medianBlur() {}
 function bilateralFilter() {}
-function dilate() {}
-function erode() {}
-function filter2D() {}
 function Sobel() {}
 function Scharr() {}
 function Laplacian() {}
 function convertScaleAbs() {}
-function getStructuringElement() {}
-function morphologyEx() {}
-function LUT() {}
-function floodFill() {}
-function adaptiveThreshold() {}
-function findContoursWithoutHierarchy() {}
-function drawContours() {}
 
 define('CV\CV_8U', 0);
 define('CV\CV_8S', 1);
