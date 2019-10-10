@@ -12,6 +12,7 @@ $src = imread("images/objects.jpg"); // opencv loads image to matrix with BGR or
 $blob = \CV\DNN\blobFromImage($src, 0.017, new \CV\Size(300,300), new Scalar(127.5, 127.5, 127.5), true, false); // convert image to 4 dimensions matrix
 //var_export($blob);
 
+//$net = \CV\DNN\readNetFromTensorflow('models/ssd_mobilenet_v2_coco/frozen_inference_graph.pb', 'models/ssd_mobilenet_v2_coco/ssd_mobilenet_v2_coco.pbtxt');
 //$net = \CV\DNN\readNetFromTensorflow('models/ssd_mobilenet_v1_coco/frozen_inference_graph.pb', 'models/ssd_mobilenet_v1_coco/ssd_mobilenet_v1_coco.pbtxt');
 $net = \CV\DNN\readNetFromTensorflow('models/ssdlite_mobilenet_v2_coco/frozen_inference_graph.pb', 'models/ssdlite_mobilenet_v2_coco/ssdlite_mobilenet_v2_coco.pbtxt');
 $net->setInput($blob, "");
