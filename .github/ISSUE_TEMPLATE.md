@@ -10,6 +10,7 @@ Please read full information about Installation in 3 steps: https://github.com/p
 2. If you have problems - try to resolve it by yourself with using info on pages:
 - https://github.com/php-opencv/php-opencv/wiki/Installation.-troubleshooting
 - https://github.com/php-opencv/php-opencv/issues?q=is%3Aissue
+- https://github.com/php-opencv/php-opencv-examples/issues?q=is%3Aissue
 
 3. If you have problems with installation please provide full information (logs of commands in console and results)
 4. If you have problems with using php-opencv-examples please provide full information (logs of commands in console and results)
