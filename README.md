@@ -32,12 +32,14 @@ Results: 87%: Egyptian cat, 4%: tabby, tabby cat, 2%: tiger cat
 - [phpdoc file](https://github.com/php-opencv/php-opencv-examples/blob/master/phpdoc.php)
 - [php-opencv-ide-helper](https://github.com/hihozhou/php-opencv-ide-helper)
 
-#### Installation
-- [opencv](https://github.com/php-opencv/php-opencv/wiki/Installation) on ubuntu/centos
-- [opencv-examples](https://github.com/php-opencv/php-opencv-examples/wiki/installation-via-docker) via docker
+#### Installation (3 steps)
+- [install opencv 4.0.0+](https://github.com/php-opencv/php-opencv/wiki/Installation.-opencv)
+- [install php-opencv for your php version](https://github.com/php-opencv/php-opencv/wiki/Installation.-php-opencv)
+- [install php-opencv-examples](https://github.com/php-opencv/php-opencv/wiki/Installation.-php-opencv-examples)
+- [resolve problems](https://github.com/php-opencv/php-opencv/wiki/Installation.-troubleshooting) (if you need it)
 
 #### Requirements
-- PHP 7.0 / 7.1 / 7.2 / ~~7.3~~ / 7.4 / 8.0
+- PHP 7.0 / 7.1 / 7.2 / 7.3 / 7.4 / 8.0
 - OpenCV 4.0.0+
 - [php-opencv](https://github.com/php-opencv/php-opencv)
 
