@@ -1412,7 +1412,7 @@ function readNetFromTorch(string $filename) {
  * @param string $modelFilename
  * @return Net
  */
-function readNetFromCaffe(string $protoFilename, $modelFilename) {
+function readNetFromCaffe(string $protoFilename, string $modelFilename) {
 
 }
 
@@ -1421,6 +1421,32 @@ function readNetFromCaffe(string $protoFilename, $modelFilename) {
  * @param string $modelFilename
  * @return Net
  */
-function readNetFromTensorflow(string $model, $config) {
+function readNetFromTensorflow(string $model, string $config) {
+
+}
+
+/**
+ * @param string $cfg
+ * @param string $weights
+ * @return Net
+ */
+function readNetFromDarknet(string $cfg, string $weights) {
+
+}
+
+/**
+ * @param string $model
+ * @return Net
+ */
+function readNetFromONNX(string $model) {
+
+}
+
+/**
+ * @param string $model
+ * @param string $weights
+ * @return Net
+ */
+function readNetFromModelOptimizer(string $model, string $weights) {
 
 }
