@@ -98,5 +98,6 @@ foreach ($faces as $i => $face) {
         }
     }
 
-    echo "face$i $faceLabel $minDistance\n";
+    $similarity = intval((max(sqrt(2), $minDistance) - $minDistance) / sqrt(2) * 100);
+    echo "face$i $faceLabel distance: $minDistance, similarity: $similarity%\n";
 }
