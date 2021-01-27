@@ -55,6 +55,13 @@ class Mat {
     }
 
     /**
+     * @return array
+     */
+    public function data() {
+        return [];
+    }
+
+    /**
      * @return int
      */
     public function type() {
@@ -172,7 +179,7 @@ class Mat {
      * @param null $value
      * @return int|null
      */
-    public function at(int $row, int $col, int $channel, $value = null) {
+    public function at(int $row, int $col, int $channel = 0, $value = null) {
 
     }
 
@@ -1374,7 +1381,7 @@ class Net {
      * @param string $name
      * @return null
      */
-    public function setInput(Mat $blob, string $name) {
+    public function setInput(Mat $blob, string $name = '') {
         return null;
     }
 
