@@ -863,7 +863,16 @@ function log() {}
  * @param int $norm_type
  * @param int $dtype
  */
-function normalize(Mat $src, Mat $dst, int $alpha = 1, int $beta = 0, int $norm_type, $dtype = -1)
+function normalize(Mat $src, Mat $dst, int $alpha = 1, int $beta = 0, int $norm_type = NORM_L2, $dtype = -1)
+{
+
+}
+
+/**
+ * @param Mat $src
+ * @param int $norm_type
+ */
+function norm(Mat $src, int $norm_type = NORM_L2)
 {
 
 }

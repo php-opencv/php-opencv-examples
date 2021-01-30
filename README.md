@@ -11,7 +11,7 @@
 
 ![detect_facemarks_by_lbf.jpg](https://raw.githubusercontent.com/php-opencv/php-opencv-examples/master/results/detect_facemarks_by_lbf.jpg)
 
-- [recognize face by LBPH algorithm](https://github.com/php-opencv/php-opencv-examples/blob/master/recognize_face_by_lbph.php) / [recognize face by DNN openface](https://github.com/php-opencv/php-opencv-examples/blob/master/recognize_face_by_dnn_openface.php)
+- [recognize face by LBPH algorithm](https://github.com/php-opencv/php-opencv-examples/blob/master/recognize_face_by_lbph.php) / [recognize face by DNN openface](https://github.com/php-opencv/php-opencv-examples/blob/master/recognize_face_by_dnn_openface.php) / [recognize face by DNN insightface](https://github.com/php-opencv/php-opencv-examples/blob/master/recognize_face_by_dnn_insightface.php)
 
 ![recognize_face_by_lbph.jpg](https://raw.githubusercontent.com/php-opencv/php-opencv-examples/master/results/recognize_face_by_lbph.jpg)
 

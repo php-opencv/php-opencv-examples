@@ -1,0 +1,9838 @@
+ir_version: 3
+producer_name: ""
+producer_version: ""
+model_version: 0
+graph {
+  name: "mxnet_converted_model"
+  node {
+    input: "data"
+    input: "scalar_op1"
+    output: "_minusscalar0"
+    name: "_minusscalar0"
+    op_type: "Sub"
+  }
+  node {
+    input: "_minusscalar0"
+    input: "scalar_op2"
+    output: "_mulscalar0"
+    name: "_mulscalar0"
+    op_type: "Mul"
+  }
+  node {
+    input: "_mulscalar0"
+    input: "conv_1_conv2d_weight"
+    output: "conv_1_conv2d"
+    name: "conv_1_conv2d"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 1
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 3
+      ints: 3
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 1
+      ints: 1
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 2
+      ints: 2
+      type: INTS
+    }
+  }
+  node {
+    input: "conv_1_conv2d"
+    input: "conv_1_batchnorm_gamma"
+    input: "conv_1_batchnorm_beta"
+    input: "conv_1_batchnorm_moving_mean"
+    input: "conv_1_batchnorm_moving_var"
+    output: "conv_1_batchnorm"
+    name: "conv_1_batchnorm"
+    op_type: "BatchNormalization"
+    attribute {
+      name: "epsilon"
+      f: 0.0010000000474974513
+      type: FLOAT
+    }
+    attribute {
+      name: "momentum"
+      f: 0.8999999761581421
+      type: FLOAT
+    }
+  }
+  node {
+    input: "conv_1_relu_gamma"
+    input: "reshape11"
+    output: "slope11"
+    name: "slope11"
+    op_type: "Reshape"
+  }
+  node {
+    input: "conv_1_batchnorm"
+    input: "slope11"
+    output: "conv_1_relu"
+    name: "conv_1_relu"
+    op_type: "PRelu"
+  }
+  node {
+    input: "conv_1_relu"
+    input: "conv_2_dw_conv2d_weight"
+    output: "conv_2_dw_conv2d"
+    name: "conv_2_dw_conv2d"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 64
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 3
+      ints: 3
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 1
+      ints: 1
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "conv_2_dw_conv2d"
+    input: "conv_2_dw_batchnorm_gamma"
+    input: "conv_2_dw_batchnorm_beta"
+    input: "conv_2_dw_batchnorm_moving_mean"
+    input: "conv_2_dw_batchnorm_moving_var"
+    output: "conv_2_dw_batchnorm"
+    name: "conv_2_dw_batchnorm"
+    op_type: "BatchNormalization"
+    attribute {
+      name: "epsilon"
+      f: 0.0010000000474974513
+      type: FLOAT
+    }
+    attribute {
+      name: "momentum"
+      f: 0.8999999761581421
+      type: FLOAT
+    }
+  }
+  node {
+    input: "conv_2_dw_relu_gamma"
+    input: "reshape20"
+    output: "slope20"
+    name: "slope20"
+    op_type: "Reshape"
+  }
+  node {
+    input: "conv_2_dw_batchnorm"
+    input: "slope20"
+    output: "conv_2_dw_relu"
+    name: "conv_2_dw_relu"
+    op_type: "PRelu"
+  }
+  node {
+    input: "conv_2_dw_relu"
+    input: "dconv_23_conv_sep_conv2d_weight"
+    output: "dconv_23_conv_sep_conv2d"
+    name: "dconv_23_conv_sep_conv2d"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 1
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "dconv_23_conv_sep_conv2d"
+    input: "dconv_23_conv_sep_batchnorm_gamma"
+    input: "dconv_23_conv_sep_batchnorm_beta"
+    input: "dconv_23_conv_sep_batchnorm_moving_mean"
+    input: "dconv_23_conv_sep_batchnorm_moving_var"
+    output: "dconv_23_conv_sep_batchnorm"
+    name: "dconv_23_conv_sep_batchnorm"
+    op_type: "BatchNormalization"
+    attribute {
+      name: "epsilon"
+      f: 0.0010000000474974513
+      type: FLOAT
+    }
+    attribute {
+      name: "momentum"
+      f: 0.8999999761581421
+      type: FLOAT
+    }
+  }
+  node {
+    input: "dconv_23_conv_sep_relu_gamma"
+    input: "reshape29"
+    output: "slope29"
+    name: "slope29"
+    op_type: "Reshape"
+  }
+  node {
+    input: "dconv_23_conv_sep_batchnorm"
+    input: "slope29"
+    output: "dconv_23_conv_sep_relu"
+    name: "dconv_23_conv_sep_relu"
+    op_type: "PRelu"
+  }
+  node {
+    input: "dconv_23_conv_sep_relu"
+    input: "dconv_23_conv_dw_conv2d_weight"
+    output: "dconv_23_conv_dw_conv2d"
+    name: "dconv_23_conv_dw_conv2d"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 128
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 3
+      ints: 3
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 1
+      ints: 1
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 2
+      ints: 2
+      type: INTS
+    }
+  }
+  node {
+    input: "dconv_23_conv_dw_conv2d"
+    input: "dconv_23_conv_dw_batchnorm_gamma"
+    input: "dconv_23_conv_dw_batchnorm_beta"
+    input: "dconv_23_conv_dw_batchnorm_moving_mean"
+    input: "dconv_23_conv_dw_batchnorm_moving_var"
+    output: "dconv_23_conv_dw_batchnorm"
+    name: "dconv_23_conv_dw_batchnorm"
+    op_type: "BatchNormalization"
+    attribute {
+      name: "epsilon"
+      f: 0.0010000000474974513
+      type: FLOAT
+    }
+    attribute {
+      name: "momentum"
+      f: 0.8999999761581421
+      type: FLOAT
+    }
+  }
+  node {
+    input: "dconv_23_conv_dw_relu_gamma"
+    input: "reshape38"
+    output: "slope38"
+    name: "slope38"
+    op_type: "Reshape"
+  }
+  node {
+    input: "dconv_23_conv_dw_batchnorm"
+    input: "slope38"
+    output: "dconv_23_conv_dw_relu"
+    name: "dconv_23_conv_dw_relu"
+    op_type: "PRelu"
+  }
+  node {
+    input: "dconv_23_conv_dw_relu"
+    input: "dconv_23_conv_proj_conv2d_weight"
+    output: "dconv_23_conv_proj_conv2d"
+    name: "dconv_23_conv_proj_conv2d"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 1
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "dconv_23_conv_proj_conv2d"
+    input: "dconv_23_conv_proj_batchnorm_gamma"
+    input: "dconv_23_conv_proj_batchnorm_beta"
+    input: "dconv_23_conv_proj_batchnorm_moving_mean"
+    input: "dconv_23_conv_proj_batchnorm_moving_var"
+    output: "dconv_23_conv_proj_batchnorm"
+    name: "dconv_23_conv_proj_batchnorm"
+    op_type: "BatchNormalization"
+    attribute {
+      name: "epsilon"
+      f: 0.0010000000474974513
+      type: FLOAT
+    }
+    attribute {
+      name: "momentum"
+      f: 0.8999999761581421
+      type: FLOAT
+    }
+  }
+  node {
+    input: "dconv_23_conv_proj_batchnorm"
+    input: "res_3_block0_conv_sep_conv2d_weight"
+    output: "res_3_block0_conv_sep_conv2d"
+    name: "res_3_block0_conv_sep_conv2d"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 1
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "res_3_block0_conv_sep_conv2d"
+    input: "res_3_block0_conv_sep_batchnorm_gamma"
+    input: "res_3_block0_conv_sep_batchnorm_beta"
+    input: "res_3_block0_conv_sep_batchnorm_moving_mean"
+    input: "res_3_block0_conv_sep_batchnorm_moving_var"
+    output: "res_3_block0_conv_sep_batchnorm"
+    name: "res_3_block0_conv_sep_batchnorm"
+    op_type: "BatchNormalization"
+    attribute {
+      name: "epsilon"
+      f: 0.0010000000474974513
+      type: FLOAT
+    }
+    attribute {
+      name: "momentum"
+      f: 0.8999999761581421
+      type: FLOAT
+    }
+  }
+  node {
+    input: "res_3_block0_conv_sep_relu_gamma"
+    input: "reshape54"
+    output: "slope54"
+    name: "slope54"
+    op_type: "Reshape"
+  }
+  node {
+    input: "res_3_block0_conv_sep_batchnorm"
+    input: "slope54"
+    output: "res_3_block0_conv_sep_relu"
+    name: "res_3_block0_conv_sep_relu"
+    op_type: "PRelu"
+  }
+  node {
+    input: "res_3_block0_conv_sep_relu"
+    input: "res_3_block0_conv_dw_conv2d_weight"
+    output: "res_3_block0_conv_dw_conv2d"
+    name: "res_3_block0_conv_dw_conv2d"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 128
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 3
+      ints: 3
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 1
+      ints: 1
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "res_3_block0_conv_dw_conv2d"
+    input: "res_3_block0_conv_dw_batchnorm_gamma"
+    input: "res_3_block0_conv_dw_batchnorm_beta"
+    input: "res_3_block0_conv_dw_batchnorm_moving_mean"
+    input: "res_3_block0_conv_dw_batchnorm_moving_var"
+    output: "res_3_block0_conv_dw_batchnorm"
+    name: "res_3_block0_conv_dw_batchnorm"
+    op_type: "BatchNormalization"
+    attribute {
+      name: "epsilon"
+      f: 0.0010000000474974513
+      type: FLOAT
+    }
+    attribute {
+      name: "momentum"
+      f: 0.8999999761581421
+      type: FLOAT
+    }
+  }
+  node {
+    input: "res_3_block0_conv_dw_relu_gamma"
+    input: "reshape63"
+    output: "slope63"
+    name: "slope63"
+    op_type: "Reshape"
+  }
+  node {
+    input: "res_3_block0_conv_dw_batchnorm"
+    input: "slope63"
+    output: "res_3_block0_conv_dw_relu"
+    name: "res_3_block0_conv_dw_relu"
+    op_type: "PRelu"
+  }
+  node {
+    input: "res_3_block0_conv_dw_relu"
+    input: "res_3_block0_conv_proj_conv2d_weight"
+    output: "res_3_block0_conv_proj_conv2d"
+    name: "res_3_block0_conv_proj_conv2d"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 1
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "res_3_block0_conv_proj_conv2d"
+    input: "res_3_block0_conv_proj_batchnorm_gamma"
+    input: "res_3_block0_conv_proj_batchnorm_beta"
+    input: "res_3_block0_conv_proj_batchnorm_moving_mean"
+    input: "res_3_block0_conv_proj_batchnorm_moving_var"
+    output: "res_3_block0_conv_proj_batchnorm"
+    name: "res_3_block0_conv_proj_batchnorm"
+    op_type: "BatchNormalization"
+    attribute {
+      name: "epsilon"
+      f: 0.0010000000474974513
+      type: FLOAT
+    }
+    attribute {
+      name: "momentum"
+      f: 0.8999999761581421
+      type: FLOAT
+    }
+  }
+  node {
+    input: "res_3_block0_conv_proj_batchnorm"
+    input: "dconv_23_conv_proj_batchnorm"
+    output: "_plus0"
+    name: "_plus0"
+    op_type: "Add"
+  }
+  node {
+    input: "_plus0"
+    input: "res_3_block1_conv_sep_conv2d_weight"
+    output: "res_3_block1_conv_sep_conv2d"
+    name: "res_3_block1_conv_sep_conv2d"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 1
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "res_3_block1_conv_sep_conv2d"
+    input: "res_3_block1_conv_sep_batchnorm_gamma"
+    input: "res_3_block1_conv_sep_batchnorm_beta"
+    input: "res_3_block1_conv_sep_batchnorm_moving_mean"
+    input: "res_3_block1_conv_sep_batchnorm_moving_var"
+    output: "res_3_block1_conv_sep_batchnorm"
+    name: "res_3_block1_conv_sep_batchnorm"
+    op_type: "BatchNormalization"
+    attribute {
+      name: "epsilon"
+      f: 0.0010000000474974513
+      type: FLOAT
+    }
+    attribute {
+      name: "momentum"
+      f: 0.8999999761581421
+      type: FLOAT
+    }
+  }
+  node {
+    input: "res_3_block1_conv_sep_relu_gamma"
+    input: "reshape80"
+    output: "slope80"
+    name: "slope80"
+    op_type: "Reshape"
+  }
+  node {
+    input: "res_3_block1_conv_sep_batchnorm"
+    input: "slope80"
+    output: "res_3_block1_conv_sep_relu"
+    name: "res_3_block1_conv_sep_relu"
+    op_type: "PRelu"
+  }
+  node {
+    input: "res_3_block1_conv_sep_relu"
+    input: "res_3_block1_conv_dw_conv2d_weight"
+    output: "res_3_block1_conv_dw_conv2d"
+    name: "res_3_block1_conv_dw_conv2d"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 128
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 3
+      ints: 3
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 1
+      ints: 1
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "res_3_block1_conv_dw_conv2d"
+    input: "res_3_block1_conv_dw_batchnorm_gamma"
+    input: "res_3_block1_conv_dw_batchnorm_beta"
+    input: "res_3_block1_conv_dw_batchnorm_moving_mean"
+    input: "res_3_block1_conv_dw_batchnorm_moving_var"
+    output: "res_3_block1_conv_dw_batchnorm"
+    name: "res_3_block1_conv_dw_batchnorm"
+    op_type: "BatchNormalization"
+    attribute {
+      name: "epsilon"
+      f: 0.0010000000474974513
+      type: FLOAT
+    }
+    attribute {
+      name: "momentum"
+      f: 0.8999999761581421
+      type: FLOAT
+    }
+  }
+  node {
+    input: "res_3_block1_conv_dw_relu_gamma"
+    input: "reshape89"
+    output: "slope89"
+    name: "slope89"
+    op_type: "Reshape"
+  }
+  node {
+    input: "res_3_block1_conv_dw_batchnorm"
+    input: "slope89"
+    output: "res_3_block1_conv_dw_relu"
+    name: "res_3_block1_conv_dw_relu"
+    op_type: "PRelu"
+  }
+  node {
+    input: "res_3_block1_conv_dw_relu"
+    input: "res_3_block1_conv_proj_conv2d_weight"
+    output: "res_3_block1_conv_proj_conv2d"
+    name: "res_3_block1_conv_proj_conv2d"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 1
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "res_3_block1_conv_proj_conv2d"
+    input: "res_3_block1_conv_proj_batchnorm_gamma"
+    input: "res_3_block1_conv_proj_batchnorm_beta"
+    input: "res_3_block1_conv_proj_batchnorm_moving_mean"
+    input: "res_3_block1_conv_proj_batchnorm_moving_var"
+    output: "res_3_block1_conv_proj_batchnorm"
+    name: "res_3_block1_conv_proj_batchnorm"
+    op_type: "BatchNormalization"
+    attribute {
+      name: "epsilon"
+      f: 0.0010000000474974513
+      type: FLOAT
+    }
+    attribute {
+      name: "momentum"
+      f: 0.8999999761581421
+      type: FLOAT
+    }
+  }
+  node {
+    input: "res_3_block1_conv_proj_batchnorm"
+    input: "_plus0"
+    output: "_plus1"
+    name: "_plus1"
+    op_type: "Add"
+  }
+  node {
+    input: "_plus1"
+    input: "res_3_block2_conv_sep_conv2d_weight"
+    output: "res_3_block2_conv_sep_conv2d"
+    name: "res_3_block2_conv_sep_conv2d"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 1
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "res_3_block2_conv_sep_conv2d"
+    input: "res_3_block2_conv_sep_batchnorm_gamma"
+    input: "res_3_block2_conv_sep_batchnorm_beta"
+    input: "res_3_block2_conv_sep_batchnorm_moving_mean"
+    input: "res_3_block2_conv_sep_batchnorm_moving_var"
+    output: "res_3_block2_conv_sep_batchnorm"
+    name: "res_3_block2_conv_sep_batchnorm"
+    op_type: "BatchNormalization"
+    attribute {
+      name: "epsilon"
+      f: 0.0010000000474974513
+      type: FLOAT
+    }
+    attribute {
+      name: "momentum"
+      f: 0.8999999761581421
+      type: FLOAT
+    }
+  }
+  node {
+    input: "res_3_block2_conv_sep_relu_gamma"
+    input: "reshape106"
+    output: "slope106"
+    name: "slope106"
+    op_type: "Reshape"
+  }
+  node {
+    input: "res_3_block2_conv_sep_batchnorm"
+    input: "slope106"
+    output: "res_3_block2_conv_sep_relu"
+    name: "res_3_block2_conv_sep_relu"
+    op_type: "PRelu"
+  }
+  node {
+    input: "res_3_block2_conv_sep_relu"
+    input: "res_3_block2_conv_dw_conv2d_weight"
+    output: "res_3_block2_conv_dw_conv2d"
+    name: "res_3_block2_conv_dw_conv2d"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 128
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 3
+      ints: 3
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 1
+      ints: 1
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "res_3_block2_conv_dw_conv2d"
+    input: "res_3_block2_conv_dw_batchnorm_gamma"
+    input: "res_3_block2_conv_dw_batchnorm_beta"
+    input: "res_3_block2_conv_dw_batchnorm_moving_mean"
+    input: "res_3_block2_conv_dw_batchnorm_moving_var"
+    output: "res_3_block2_conv_dw_batchnorm"
+    name: "res_3_block2_conv_dw_batchnorm"
+    op_type: "BatchNormalization"
+    attribute {
+      name: "epsilon"
+      f: 0.0010000000474974513
+      type: FLOAT
+    }
+    attribute {
+      name: "momentum"
+      f: 0.8999999761581421
+      type: FLOAT
+    }
+  }
+  node {
+    input: "res_3_block2_conv_dw_relu_gamma"
+    input: "reshape115"
+    output: "slope115"
+    name: "slope115"
+    op_type: "Reshape"
+  }
+  node {
+    input: "res_3_block2_conv_dw_batchnorm"
+    input: "slope115"
+    output: "res_3_block2_conv_dw_relu"
+    name: "res_3_block2_conv_dw_relu"
+    op_type: "PRelu"
+  }
+  node {
+    input: "res_3_block2_conv_dw_relu"
+    input: "res_3_block2_conv_proj_conv2d_weight"
+    output: "res_3_block2_conv_proj_conv2d"
+    name: "res_3_block2_conv_proj_conv2d"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 1
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "res_3_block2_conv_proj_conv2d"
+    input: "res_3_block2_conv_proj_batchnorm_gamma"
+    input: "res_3_block2_conv_proj_batchnorm_beta"
+    input: "res_3_block2_conv_proj_batchnorm_moving_mean"
+    input: "res_3_block2_conv_proj_batchnorm_moving_var"
+    output: "res_3_block2_conv_proj_batchnorm"
+    name: "res_3_block2_conv_proj_batchnorm"
+    op_type: "BatchNormalization"
+    attribute {
+      name: "epsilon"
+      f: 0.0010000000474974513
+      type: FLOAT
+    }
+    attribute {
+      name: "momentum"
+      f: 0.8999999761581421
+      type: FLOAT
+    }
+  }
+  node {
+    input: "res_3_block2_conv_proj_batchnorm"
+    input: "_plus1"
+    output: "_plus2"
+    name: "_plus2"
+    op_type: "Add"
+  }
+  node {
+    input: "_plus2"
+    input: "res_3_block3_conv_sep_conv2d_weight"
+    output: "res_3_block3_conv_sep_conv2d"
+    name: "res_3_block3_conv_sep_conv2d"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 1
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "res_3_block3_conv_sep_conv2d"
+    input: "res_3_block3_conv_sep_batchnorm_gamma"
+    input: "res_3_block3_conv_sep_batchnorm_beta"
+    input: "res_3_block3_conv_sep_batchnorm_moving_mean"
+    input: "res_3_block3_conv_sep_batchnorm_moving_var"
+    output: "res_3_block3_conv_sep_batchnorm"
+    name: "res_3_block3_conv_sep_batchnorm"
+    op_type: "BatchNormalization"
+    attribute {
+      name: "epsilon"
+      f: 0.0010000000474974513
+      type: FLOAT
+    }
+    attribute {
+      name: "momentum"
+      f: 0.8999999761581421
+      type: FLOAT
+    }
+  }
+  node {
+    input: "res_3_block3_conv_sep_relu_gamma"
+    input: "reshape132"
+    output: "slope132"
+    name: "slope132"
+    op_type: "Reshape"
+  }
+  node {
+    input: "res_3_block3_conv_sep_batchnorm"
+    input: "slope132"
+    output: "res_3_block3_conv_sep_relu"
+    name: "res_3_block3_conv_sep_relu"
+    op_type: "PRelu"
+  }
+  node {
+    input: "res_3_block3_conv_sep_relu"
+    input: "res_3_block3_conv_dw_conv2d_weight"
+    output: "res_3_block3_conv_dw_conv2d"
+    name: "res_3_block3_conv_dw_conv2d"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 128
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 3
+      ints: 3
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 1
+      ints: 1
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "res_3_block3_conv_dw_conv2d"
+    input: "res_3_block3_conv_dw_batchnorm_gamma"
+    input: "res_3_block3_conv_dw_batchnorm_beta"
+    input: "res_3_block3_conv_dw_batchnorm_moving_mean"
+    input: "res_3_block3_conv_dw_batchnorm_moving_var"
+    output: "res_3_block3_conv_dw_batchnorm"
+    name: "res_3_block3_conv_dw_batchnorm"
+    op_type: "BatchNormalization"
+    attribute {
+      name: "epsilon"
+      f: 0.0010000000474974513
+      type: FLOAT
+    }
+    attribute {
+      name: "momentum"
+      f: 0.8999999761581421
+      type: FLOAT
+    }
+  }
+  node {
+    input: "res_3_block3_conv_dw_relu_gamma"
+    input: "reshape141"
+    output: "slope141"
+    name: "slope141"
+    op_type: "Reshape"
+  }
+  node {
+    input: "res_3_block3_conv_dw_batchnorm"
+    input: "slope141"
+    output: "res_3_block3_conv_dw_relu"
+    name: "res_3_block3_conv_dw_relu"
+    op_type: "PRelu"
+  }
+  node {
+    input: "res_3_block3_conv_dw_relu"
+    input: "res_3_block3_conv_proj_conv2d_weight"
+    output: "res_3_block3_conv_proj_conv2d"
+    name: "res_3_block3_conv_proj_conv2d"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 1
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "res_3_block3_conv_proj_conv2d"
+    input: "res_3_block3_conv_proj_batchnorm_gamma"
+    input: "res_3_block3_conv_proj_batchnorm_beta"
+    input: "res_3_block3_conv_proj_batchnorm_moving_mean"
+    input: "res_3_block3_conv_proj_batchnorm_moving_var"
+    output: "res_3_block3_conv_proj_batchnorm"
+    name: "res_3_block3_conv_proj_batchnorm"
+    op_type: "BatchNormalization"
+    attribute {
+      name: "epsilon"
+      f: 0.0010000000474974513
+      type: FLOAT
+    }
+    attribute {
+      name: "momentum"
+      f: 0.8999999761581421
+      type: FLOAT
+    }
+  }
+  node {
+    input: "res_3_block3_conv_proj_batchnorm"
+    input: "_plus2"
+    output: "_plus3"
+    name: "_plus3"
+    op_type: "Add"
+  }
+  node {
+    input: "_plus3"
+    input: "dconv_34_conv_sep_conv2d_weight"
+    output: "dconv_34_conv_sep_conv2d"
+    name: "dconv_34_conv_sep_conv2d"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 1
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "dconv_34_conv_sep_conv2d"
+    input: "dconv_34_conv_sep_batchnorm_gamma"
+    input: "dconv_34_conv_sep_batchnorm_beta"
+    input: "dconv_34_conv_sep_batchnorm_moving_mean"
+    input: "dconv_34_conv_sep_batchnorm_moving_var"
+    output: "dconv_34_conv_sep_batchnorm"
+    name: "dconv_34_conv_sep_batchnorm"
+    op_type: "BatchNormalization"
+    attribute {
+      name: "epsilon"
+      f: 0.0010000000474974513
+      type: FLOAT
+    }
+    attribute {
+      name: "momentum"
+      f: 0.8999999761581421
+      type: FLOAT
+    }
+  }
+  node {
+    input: "dconv_34_conv_sep_relu_gamma"
+    input: "reshape158"
+    output: "slope158"
+    name: "slope158"
+    op_type: "Reshape"
+  }
+  node {
+    input: "dconv_34_conv_sep_batchnorm"
+    input: "slope158"
+    output: "dconv_34_conv_sep_relu"
+    name: "dconv_34_conv_sep_relu"
+    op_type: "PRelu"
+  }
+  node {
+    input: "dconv_34_conv_sep_relu"
+    input: "dconv_34_conv_dw_conv2d_weight"
+    output: "dconv_34_conv_dw_conv2d"
+    name: "dconv_34_conv_dw_conv2d"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 256
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 3
+      ints: 3
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 1
+      ints: 1
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 2
+      ints: 2
+      type: INTS
+    }
+  }
+  node {
+    input: "dconv_34_conv_dw_conv2d"
+    input: "dconv_34_conv_dw_batchnorm_gamma"
+    input: "dconv_34_conv_dw_batchnorm_beta"
+    input: "dconv_34_conv_dw_batchnorm_moving_mean"
+    input: "dconv_34_conv_dw_batchnorm_moving_var"
+    output: "dconv_34_conv_dw_batchnorm"
+    name: "dconv_34_conv_dw_batchnorm"
+    op_type: "BatchNormalization"
+    attribute {
+      name: "epsilon"
+      f: 0.0010000000474974513
+      type: FLOAT
+    }
+    attribute {
+      name: "momentum"
+      f: 0.8999999761581421
+      type: FLOAT
+    }
+  }
+  node {
+    input: "dconv_34_conv_dw_relu_gamma"
+    input: "reshape167"
+    output: "slope167"
+    name: "slope167"
+    op_type: "Reshape"
+  }
+  node {
+    input: "dconv_34_conv_dw_batchnorm"
+    input: "slope167"
+    output: "dconv_34_conv_dw_relu"
+    name: "dconv_34_conv_dw_relu"
+    op_type: "PRelu"
+  }
+  node {
+    input: "dconv_34_conv_dw_relu"
+    input: "dconv_34_conv_proj_conv2d_weight"
+    output: "dconv_34_conv_proj_conv2d"
+    name: "dconv_34_conv_proj_conv2d"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 1
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "dconv_34_conv_proj_conv2d"
+    input: "dconv_34_conv_proj_batchnorm_gamma"
+    input: "dconv_34_conv_proj_batchnorm_beta"
+    input: "dconv_34_conv_proj_batchnorm_moving_mean"
+    input: "dconv_34_conv_proj_batchnorm_moving_var"
+    output: "dconv_34_conv_proj_batchnorm"
+    name: "dconv_34_conv_proj_batchnorm"
+    op_type: "BatchNormalization"
+    attribute {
+      name: "epsilon"
+      f: 0.0010000000474974513
+      type: FLOAT
+    }
+    attribute {
+      name: "momentum"
+      f: 0.8999999761581421
+      type: FLOAT
+    }
+  }
+  node {
+    input: "dconv_34_conv_proj_batchnorm"
+    input: "res_4_block0_conv_sep_conv2d_weight"
+    output: "res_4_block0_conv_sep_conv2d"
+    name: "res_4_block0_conv_sep_conv2d"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 1
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "res_4_block0_conv_sep_conv2d"
+    input: "res_4_block0_conv_sep_batchnorm_gamma"
+    input: "res_4_block0_conv_sep_batchnorm_beta"
+    input: "res_4_block0_conv_sep_batchnorm_moving_mean"
+    input: "res_4_block0_conv_sep_batchnorm_moving_var"
+    output: "res_4_block0_conv_sep_batchnorm"
+    name: "res_4_block0_conv_sep_batchnorm"
+    op_type: "BatchNormalization"
+    attribute {
+      name: "epsilon"
+      f: 0.0010000000474974513
+      type: FLOAT
+    }
+    attribute {
+      name: "momentum"
+      f: 0.8999999761581421
+      type: FLOAT
+    }
+  }
+  node {
+    input: "res_4_block0_conv_sep_relu_gamma"
+    input: "reshape183"
+    output: "slope183"
+    name: "slope183"
+    op_type: "Reshape"
+  }
+  node {
+    input: "res_4_block0_conv_sep_batchnorm"
+    input: "slope183"
+    output: "res_4_block0_conv_sep_relu"
+    name: "res_4_block0_conv_sep_relu"
+    op_type: "PRelu"
+  }
+  node {
+    input: "res_4_block0_conv_sep_relu"
+    input: "res_4_block0_conv_dw_conv2d_weight"
+    output: "res_4_block0_conv_dw_conv2d"
+    name: "res_4_block0_conv_dw_conv2d"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 256
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 3
+      ints: 3
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 1
+      ints: 1
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "res_4_block0_conv_dw_conv2d"
+    input: "res_4_block0_conv_dw_batchnorm_gamma"
+    input: "res_4_block0_conv_dw_batchnorm_beta"
+    input: "res_4_block0_conv_dw_batchnorm_moving_mean"
+    input: "res_4_block0_conv_dw_batchnorm_moving_var"
+    output: "res_4_block0_conv_dw_batchnorm"
+    name: "res_4_block0_conv_dw_batchnorm"
+    op_type: "BatchNormalization"
+    attribute {
+      name: "epsilon"
+      f: 0.0010000000474974513
+      type: FLOAT
+    }
+    attribute {
+      name: "momentum"
+      f: 0.8999999761581421
+      type: FLOAT
+    }
+  }
+  node {
+    input: "res_4_block0_conv_dw_relu_gamma"
+    input: "reshape192"
+    output: "slope192"
+    name: "slope192"
+    op_type: "Reshape"
+  }
+  node {
+    input: "res_4_block0_conv_dw_batchnorm"
+    input: "slope192"
+    output: "res_4_block0_conv_dw_relu"
+    name: "res_4_block0_conv_dw_relu"
+    op_type: "PRelu"
+  }
+  node {
+    input: "res_4_block0_conv_dw_relu"
+    input: "res_4_block0_conv_proj_conv2d_weight"
+    output: "res_4_block0_conv_proj_conv2d"
+    name: "res_4_block0_conv_proj_conv2d"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 1
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "res_4_block0_conv_proj_conv2d"
+    input: "res_4_block0_conv_proj_batchnorm_gamma"
+    input: "res_4_block0_conv_proj_batchnorm_beta"
+    input: "res_4_block0_conv_proj_batchnorm_moving_mean"
+    input: "res_4_block0_conv_proj_batchnorm_moving_var"
+    output: "res_4_block0_conv_proj_batchnorm"
+    name: "res_4_block0_conv_proj_batchnorm"
+    op_type: "BatchNormalization"
+    attribute {
+      name: "epsilon"
+      f: 0.0010000000474974513
+      type: FLOAT
+    }
+    attribute {
+      name: "momentum"
+      f: 0.8999999761581421
+      type: FLOAT
+    }
+  }
+  node {
+    input: "res_4_block0_conv_proj_batchnorm"
+    input: "dconv_34_conv_proj_batchnorm"
+    output: "_plus4"
+    name: "_plus4"
+    op_type: "Add"
+  }
+  node {
+    input: "_plus4"
+    input: "res_4_block1_conv_sep_conv2d_weight"
+    output: "res_4_block1_conv_sep_conv2d"
+    name: "res_4_block1_conv_sep_conv2d"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 1
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "res_4_block1_conv_sep_conv2d"
+    input: "res_4_block1_conv_sep_batchnorm_gamma"
+    input: "res_4_block1_conv_sep_batchnorm_beta"
+    input: "res_4_block1_conv_sep_batchnorm_moving_mean"
+    input: "res_4_block1_conv_sep_batchnorm_moving_var"
+    output: "res_4_block1_conv_sep_batchnorm"
+    name: "res_4_block1_conv_sep_batchnorm"
+    op_type: "BatchNormalization"
+    attribute {
+      name: "epsilon"
+      f: 0.0010000000474974513
+      type: FLOAT
+    }
+    attribute {
+      name: "momentum"
+      f: 0.8999999761581421
+      type: FLOAT
+    }
+  }
+  node {
+    input: "res_4_block1_conv_sep_relu_gamma"
+    input: "reshape209"
+    output: "slope209"
+    name: "slope209"
+    op_type: "Reshape"
+  }
+  node {
+    input: "res_4_block1_conv_sep_batchnorm"
+    input: "slope209"
+    output: "res_4_block1_conv_sep_relu"
+    name: "res_4_block1_conv_sep_relu"
+    op_type: "PRelu"
+  }
+  node {
+    input: "res_4_block1_conv_sep_relu"
+    input: "res_4_block1_conv_dw_conv2d_weight"
+    output: "res_4_block1_conv_dw_conv2d"
+    name: "res_4_block1_conv_dw_conv2d"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 256
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 3
+      ints: 3
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 1
+      ints: 1
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "res_4_block1_conv_dw_conv2d"
+    input: "res_4_block1_conv_dw_batchnorm_gamma"
+    input: "res_4_block1_conv_dw_batchnorm_beta"
+    input: "res_4_block1_conv_dw_batchnorm_moving_mean"
+    input: "res_4_block1_conv_dw_batchnorm_moving_var"
+    output: "res_4_block1_conv_dw_batchnorm"
+    name: "res_4_block1_conv_dw_batchnorm"
+    op_type: "BatchNormalization"
+    attribute {
+      name: "epsilon"
+      f: 0.0010000000474974513
+      type: FLOAT
+    }
+    attribute {
+      name: "momentum"
+      f: 0.8999999761581421
+      type: FLOAT
+    }
+  }
+  node {
+    input: "res_4_block1_conv_dw_relu_gamma"
+    input: "reshape218"
+    output: "slope218"
+    name: "slope218"
+    op_type: "Reshape"
+  }
+  node {
+    input: "res_4_block1_conv_dw_batchnorm"
+    input: "slope218"
+    output: "res_4_block1_conv_dw_relu"
+    name: "res_4_block1_conv_dw_relu"
+    op_type: "PRelu"
+  }
+  node {
+    input: "res_4_block1_conv_dw_relu"
+    input: "res_4_block1_conv_proj_conv2d_weight"
+    output: "res_4_block1_conv_proj_conv2d"
+    name: "res_4_block1_conv_proj_conv2d"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 1
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "res_4_block1_conv_proj_conv2d"
+    input: "res_4_block1_conv_proj_batchnorm_gamma"
+    input: "res_4_block1_conv_proj_batchnorm_beta"
+    input: "res_4_block1_conv_proj_batchnorm_moving_mean"
+    input: "res_4_block1_conv_proj_batchnorm_moving_var"
+    output: "res_4_block1_conv_proj_batchnorm"
+    name: "res_4_block1_conv_proj_batchnorm"
+    op_type: "BatchNormalization"
+    attribute {
+      name: "epsilon"
+      f: 0.0010000000474974513
+      type: FLOAT
+    }
+    attribute {
+      name: "momentum"
+      f: 0.8999999761581421
+      type: FLOAT
+    }
+  }
+  node {
+    input: "res_4_block1_conv_proj_batchnorm"
+    input: "_plus4"
+    output: "_plus5"
+    name: "_plus5"
+    op_type: "Add"
+  }
+  node {
+    input: "_plus5"
+    input: "res_4_block2_conv_sep_conv2d_weight"
+    output: "res_4_block2_conv_sep_conv2d"
+    name: "res_4_block2_conv_sep_conv2d"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 1
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "res_4_block2_conv_sep_conv2d"
+    input: "res_4_block2_conv_sep_batchnorm_gamma"
+    input: "res_4_block2_conv_sep_batchnorm_beta"
+    input: "res_4_block2_conv_sep_batchnorm_moving_mean"
+    input: "res_4_block2_conv_sep_batchnorm_moving_var"
+    output: "res_4_block2_conv_sep_batchnorm"
+    name: "res_4_block2_conv_sep_batchnorm"
+    op_type: "BatchNormalization"
+    attribute {
+      name: "epsilon"
+      f: 0.0010000000474974513
+      type: FLOAT
+    }
+    attribute {
+      name: "momentum"
+      f: 0.8999999761581421
+      type: FLOAT
+    }
+  }
+  node {
+    input: "res_4_block2_conv_sep_relu_gamma"
+    input: "reshape235"
+    output: "slope235"
+    name: "slope235"
+    op_type: "Reshape"
+  }
+  node {
+    input: "res_4_block2_conv_sep_batchnorm"
+    input: "slope235"
+    output: "res_4_block2_conv_sep_relu"
+    name: "res_4_block2_conv_sep_relu"
+    op_type: "PRelu"
+  }
+  node {
+    input: "res_4_block2_conv_sep_relu"
+    input: "res_4_block2_conv_dw_conv2d_weight"
+    output: "res_4_block2_conv_dw_conv2d"
+    name: "res_4_block2_conv_dw_conv2d"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 256
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 3
+      ints: 3
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 1
+      ints: 1
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "res_4_block2_conv_dw_conv2d"
+    input: "res_4_block2_conv_dw_batchnorm_gamma"
+    input: "res_4_block2_conv_dw_batchnorm_beta"
+    input: "res_4_block2_conv_dw_batchnorm_moving_mean"
+    input: "res_4_block2_conv_dw_batchnorm_moving_var"
+    output: "res_4_block2_conv_dw_batchnorm"
+    name: "res_4_block2_conv_dw_batchnorm"
+    op_type: "BatchNormalization"
+    attribute {
+      name: "epsilon"
+      f: 0.0010000000474974513
+      type: FLOAT
+    }
+    attribute {
+      name: "momentum"
+      f: 0.8999999761581421
+      type: FLOAT
+    }
+  }
+  node {
+    input: "res_4_block2_conv_dw_relu_gamma"
+    input: "reshape244"
+    output: "slope244"
+    name: "slope244"
+    op_type: "Reshape"
+  }
+  node {
+    input: "res_4_block2_conv_dw_batchnorm"
+    input: "slope244"
+    output: "res_4_block2_conv_dw_relu"
+    name: "res_4_block2_conv_dw_relu"
+    op_type: "PRelu"
+  }
+  node {
+    input: "res_4_block2_conv_dw_relu"
+    input: "res_4_block2_conv_proj_conv2d_weight"
+    output: "res_4_block2_conv_proj_conv2d"
+    name: "res_4_block2_conv_proj_conv2d"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 1
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "res_4_block2_conv_proj_conv2d"
+    input: "res_4_block2_conv_proj_batchnorm_gamma"
+    input: "res_4_block2_conv_proj_batchnorm_beta"
+    input: "res_4_block2_conv_proj_batchnorm_moving_mean"
+    input: "res_4_block2_conv_proj_batchnorm_moving_var"
+    output: "res_4_block2_conv_proj_batchnorm"
+    name: "res_4_block2_conv_proj_batchnorm"
+    op_type: "BatchNormalization"
+    attribute {
+      name: "epsilon"
+      f: 0.0010000000474974513
+      type: FLOAT
+    }
+    attribute {
+      name: "momentum"
+      f: 0.8999999761581421
+      type: FLOAT
+    }
+  }
+  node {
+    input: "res_4_block2_conv_proj_batchnorm"
+    input: "_plus5"
+    output: "_plus6"
+    name: "_plus6"
+    op_type: "Add"
+  }
+  node {
+    input: "_plus6"
+    input: "res_4_block3_conv_sep_conv2d_weight"
+    output: "res_4_block3_conv_sep_conv2d"
+    name: "res_4_block3_conv_sep_conv2d"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 1
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "res_4_block3_conv_sep_conv2d"
+    input: "res_4_block3_conv_sep_batchnorm_gamma"
+    input: "res_4_block3_conv_sep_batchnorm_beta"
+    input: "res_4_block3_conv_sep_batchnorm_moving_mean"
+    input: "res_4_block3_conv_sep_batchnorm_moving_var"
+    output: "res_4_block3_conv_sep_batchnorm"
+    name: "res_4_block3_conv_sep_batchnorm"
+    op_type: "BatchNormalization"
+    attribute {
+      name: "epsilon"
+      f: 0.0010000000474974513
+      type: FLOAT
+    }
+    attribute {
+      name: "momentum"
+      f: 0.8999999761581421
+      type: FLOAT
+    }
+  }
+  node {
+    input: "res_4_block3_conv_sep_relu_gamma"
+    input: "reshape261"
+    output: "slope261"
+    name: "slope261"
+    op_type: "Reshape"
+  }
+  node {
+    input: "res_4_block3_conv_sep_batchnorm"
+    input: "slope261"
+    output: "res_4_block3_conv_sep_relu"
+    name: "res_4_block3_conv_sep_relu"
+    op_type: "PRelu"
+  }
+  node {
+    input: "res_4_block3_conv_sep_relu"
+    input: "res_4_block3_conv_dw_conv2d_weight"
+    output: "res_4_block3_conv_dw_conv2d"
+    name: "res_4_block3_conv_dw_conv2d"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 256
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 3
+      ints: 3
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 1
+      ints: 1
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "res_4_block3_conv_dw_conv2d"
+    input: "res_4_block3_conv_dw_batchnorm_gamma"
+    input: "res_4_block3_conv_dw_batchnorm_beta"
+    input: "res_4_block3_conv_dw_batchnorm_moving_mean"
+    input: "res_4_block3_conv_dw_batchnorm_moving_var"
+    output: "res_4_block3_conv_dw_batchnorm"
+    name: "res_4_block3_conv_dw_batchnorm"
+    op_type: "BatchNormalization"
+    attribute {
+      name: "epsilon"
+      f: 0.0010000000474974513
+      type: FLOAT
+    }
+    attribute {
+      name: "momentum"
+      f: 0.8999999761581421
+      type: FLOAT
+    }
+  }
+  node {
+    input: "res_4_block3_conv_dw_relu_gamma"
+    input: "reshape270"
+    output: "slope270"
+    name: "slope270"
+    op_type: "Reshape"
+  }
+  node {
+    input: "res_4_block3_conv_dw_batchnorm"
+    input: "slope270"
+    output: "res_4_block3_conv_dw_relu"
+    name: "res_4_block3_conv_dw_relu"
+    op_type: "PRelu"
+  }
+  node {
+    input: "res_4_block3_conv_dw_relu"
+    input: "res_4_block3_conv_proj_conv2d_weight"
+    output: "res_4_block3_conv_proj_conv2d"
+    name: "res_4_block3_conv_proj_conv2d"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 1
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "res_4_block3_conv_proj_conv2d"
+    input: "res_4_block3_conv_proj_batchnorm_gamma"
+    input: "res_4_block3_conv_proj_batchnorm_beta"
+    input: "res_4_block3_conv_proj_batchnorm_moving_mean"
+    input: "res_4_block3_conv_proj_batchnorm_moving_var"
+    output: "res_4_block3_conv_proj_batchnorm"
+    name: "res_4_block3_conv_proj_batchnorm"
+    op_type: "BatchNormalization"
+    attribute {
+      name: "epsilon"
+      f: 0.0010000000474974513
+      type: FLOAT
+    }
+    attribute {
+      name: "momentum"
+      f: 0.8999999761581421
+      type: FLOAT
+    }
+  }
+  node {
+    input: "res_4_block3_conv_proj_batchnorm"
+    input: "_plus6"
+    output: "_plus7"
+    name: "_plus7"
+    op_type: "Add"
+  }
+  node {
+    input: "_plus7"
+    input: "res_4_block4_conv_sep_conv2d_weight"
+    output: "res_4_block4_conv_sep_conv2d"
+    name: "res_4_block4_conv_sep_conv2d"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 1
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "res_4_block4_conv_sep_conv2d"
+    input: "res_4_block4_conv_sep_batchnorm_gamma"
+    input: "res_4_block4_conv_sep_batchnorm_beta"
+    input: "res_4_block4_conv_sep_batchnorm_moving_mean"
+    input: "res_4_block4_conv_sep_batchnorm_moving_var"
+    output: "res_4_block4_conv_sep_batchnorm"
+    name: "res_4_block4_conv_sep_batchnorm"
+    op_type: "BatchNormalization"
+    attribute {
+      name: "epsilon"
+      f: 0.0010000000474974513
+      type: FLOAT
+    }
+    attribute {
+      name: "momentum"
+      f: 0.8999999761581421
+      type: FLOAT
+    }
+  }
+  node {
+    input: "res_4_block4_conv_sep_relu_gamma"
+    input: "reshape287"
+    output: "slope287"
+    name: "slope287"
+    op_type: "Reshape"
+  }
+  node {
+    input: "res_4_block4_conv_sep_batchnorm"
+    input: "slope287"
+    output: "res_4_block4_conv_sep_relu"
+    name: "res_4_block4_conv_sep_relu"
+    op_type: "PRelu"
+  }
+  node {
+    input: "res_4_block4_conv_sep_relu"
+    input: "res_4_block4_conv_dw_conv2d_weight"
+    output: "res_4_block4_conv_dw_conv2d"
+    name: "res_4_block4_conv_dw_conv2d"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 256
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 3
+      ints: 3
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 1
+      ints: 1
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "res_4_block4_conv_dw_conv2d"
+    input: "res_4_block4_conv_dw_batchnorm_gamma"
+    input: "res_4_block4_conv_dw_batchnorm_beta"
+    input: "res_4_block4_conv_dw_batchnorm_moving_mean"
+    input: "res_4_block4_conv_dw_batchnorm_moving_var"
+    output: "res_4_block4_conv_dw_batchnorm"
+    name: "res_4_block4_conv_dw_batchnorm"
+    op_type: "BatchNormalization"
+    attribute {
+      name: "epsilon"
+      f: 0.0010000000474974513
+      type: FLOAT
+    }
+    attribute {
+      name: "momentum"
+      f: 0.8999999761581421
+      type: FLOAT
+    }
+  }
+  node {
+    input: "res_4_block4_conv_dw_relu_gamma"
+    input: "reshape296"
+    output: "slope296"
+    name: "slope296"
+    op_type: "Reshape"
+  }
+  node {
+    input: "res_4_block4_conv_dw_batchnorm"
+    input: "slope296"
+    output: "res_4_block4_conv_dw_relu"
+    name: "res_4_block4_conv_dw_relu"
+    op_type: "PRelu"
+  }
+  node {
+    input: "res_4_block4_conv_dw_relu"
+    input: "res_4_block4_conv_proj_conv2d_weight"
+    output: "res_4_block4_conv_proj_conv2d"
+    name: "res_4_block4_conv_proj_conv2d"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 1
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "res_4_block4_conv_proj_conv2d"
+    input: "res_4_block4_conv_proj_batchnorm_gamma"
+    input: "res_4_block4_conv_proj_batchnorm_beta"
+    input: "res_4_block4_conv_proj_batchnorm_moving_mean"
+    input: "res_4_block4_conv_proj_batchnorm_moving_var"
+    output: "res_4_block4_conv_proj_batchnorm"
+    name: "res_4_block4_conv_proj_batchnorm"
+    op_type: "BatchNormalization"
+    attribute {
+      name: "epsilon"
+      f: 0.0010000000474974513
+      type: FLOAT
+    }
+    attribute {
+      name: "momentum"
+      f: 0.8999999761581421
+      type: FLOAT
+    }
+  }
+  node {
+    input: "res_4_block4_conv_proj_batchnorm"
+    input: "_plus7"
+    output: "_plus8"
+    name: "_plus8"
+    op_type: "Add"
+  }
+  node {
+    input: "_plus8"
+    input: "res_4_block5_conv_sep_conv2d_weight"
+    output: "res_4_block5_conv_sep_conv2d"
+    name: "res_4_block5_conv_sep_conv2d"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 1
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "res_4_block5_conv_sep_conv2d"
+    input: "res_4_block5_conv_sep_batchnorm_gamma"
+    input: "res_4_block5_conv_sep_batchnorm_beta"
+    input: "res_4_block5_conv_sep_batchnorm_moving_mean"
+    input: "res_4_block5_conv_sep_batchnorm_moving_var"
+    output: "res_4_block5_conv_sep_batchnorm"
+    name: "res_4_block5_conv_sep_batchnorm"
+    op_type: "BatchNormalization"
+    attribute {
+      name: "epsilon"
+      f: 0.0010000000474974513
+      type: FLOAT
+    }
+    attribute {
+      name: "momentum"
+      f: 0.8999999761581421
+      type: FLOAT
+    }
+  }
+  node {
+    input: "res_4_block5_conv_sep_relu_gamma"
+    input: "reshape313"
+    output: "slope313"
+    name: "slope313"
+    op_type: "Reshape"
+  }
+  node {
+    input: "res_4_block5_conv_sep_batchnorm"
+    input: "slope313"
+    output: "res_4_block5_conv_sep_relu"
+    name: "res_4_block5_conv_sep_relu"
+    op_type: "PRelu"
+  }
+  node {
+    input: "res_4_block5_conv_sep_relu"
+    input: "res_4_block5_conv_dw_conv2d_weight"
+    output: "res_4_block5_conv_dw_conv2d"
+    name: "res_4_block5_conv_dw_conv2d"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 256
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 3
+      ints: 3
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 1
+      ints: 1
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "res_4_block5_conv_dw_conv2d"
+    input: "res_4_block5_conv_dw_batchnorm_gamma"
+    input: "res_4_block5_conv_dw_batchnorm_beta"
+    input: "res_4_block5_conv_dw_batchnorm_moving_mean"
+    input: "res_4_block5_conv_dw_batchnorm_moving_var"
+    output: "res_4_block5_conv_dw_batchnorm"
+    name: "res_4_block5_conv_dw_batchnorm"
+    op_type: "BatchNormalization"
+    attribute {
+      name: "epsilon"
+      f: 0.0010000000474974513
+      type: FLOAT
+    }
+    attribute {
+      name: "momentum"
+      f: 0.8999999761581421
+      type: FLOAT
+    }
+  }
+  node {
+    input: "res_4_block5_conv_dw_relu_gamma"
+    input: "reshape322"
+    output: "slope322"
+    name: "slope322"
+    op_type: "Reshape"
+  }
+  node {
+    input: "res_4_block5_conv_dw_batchnorm"
+    input: "slope322"
+    output: "res_4_block5_conv_dw_relu"
+    name: "res_4_block5_conv_dw_relu"
+    op_type: "PRelu"
+  }
+  node {
+    input: "res_4_block5_conv_dw_relu"
+    input: "res_4_block5_conv_proj_conv2d_weight"
+    output: "res_4_block5_conv_proj_conv2d"
+    name: "res_4_block5_conv_proj_conv2d"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 1
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "res_4_block5_conv_proj_conv2d"
+    input: "res_4_block5_conv_proj_batchnorm_gamma"
+    input: "res_4_block5_conv_proj_batchnorm_beta"
+    input: "res_4_block5_conv_proj_batchnorm_moving_mean"
+    input: "res_4_block5_conv_proj_batchnorm_moving_var"
+    output: "res_4_block5_conv_proj_batchnorm"
+    name: "res_4_block5_conv_proj_batchnorm"
+    op_type: "BatchNormalization"
+    attribute {
+      name: "epsilon"
+      f: 0.0010000000474974513
+      type: FLOAT
+    }
+    attribute {
+      name: "momentum"
+      f: 0.8999999761581421
+      type: FLOAT
+    }
+  }
+  node {
+    input: "res_4_block5_conv_proj_batchnorm"
+    input: "_plus8"
+    output: "_plus9"
+    name: "_plus9"
+    op_type: "Add"
+  }
+  node {
+    input: "_plus9"
+    input: "dconv_45_conv_sep_conv2d_weight"
+    output: "dconv_45_conv_sep_conv2d"
+    name: "dconv_45_conv_sep_conv2d"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 1
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "dconv_45_conv_sep_conv2d"
+    input: "dconv_45_conv_sep_batchnorm_gamma"
+    input: "dconv_45_conv_sep_batchnorm_beta"
+    input: "dconv_45_conv_sep_batchnorm_moving_mean"
+    input: "dconv_45_conv_sep_batchnorm_moving_var"
+    output: "dconv_45_conv_sep_batchnorm"
+    name: "dconv_45_conv_sep_batchnorm"
+    op_type: "BatchNormalization"
+    attribute {
+      name: "epsilon"
+      f: 0.0010000000474974513
+      type: FLOAT
+    }
+    attribute {
+      name: "momentum"
+      f: 0.8999999761581421
+      type: FLOAT
+    }
+  }
+  node {
+    input: "dconv_45_conv_sep_relu_gamma"
+    input: "reshape339"
+    output: "slope339"
+    name: "slope339"
+    op_type: "Reshape"
+  }
+  node {
+    input: "dconv_45_conv_sep_batchnorm"
+    input: "slope339"
+    output: "dconv_45_conv_sep_relu"
+    name: "dconv_45_conv_sep_relu"
+    op_type: "PRelu"
+  }
+  node {
+    input: "dconv_45_conv_sep_relu"
+    input: "dconv_45_conv_dw_conv2d_weight"
+    output: "dconv_45_conv_dw_conv2d"
+    name: "dconv_45_conv_dw_conv2d"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 512
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 3
+      ints: 3
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 1
+      ints: 1
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 2
+      ints: 2
+      type: INTS
+    }
+  }
+  node {
+    input: "dconv_45_conv_dw_conv2d"
+    input: "dconv_45_conv_dw_batchnorm_gamma"
+    input: "dconv_45_conv_dw_batchnorm_beta"
+    input: "dconv_45_conv_dw_batchnorm_moving_mean"
+    input: "dconv_45_conv_dw_batchnorm_moving_var"
+    output: "dconv_45_conv_dw_batchnorm"
+    name: "dconv_45_conv_dw_batchnorm"
+    op_type: "BatchNormalization"
+    attribute {
+      name: "epsilon"
+      f: 0.0010000000474974513
+      type: FLOAT
+    }
+    attribute {
+      name: "momentum"
+      f: 0.8999999761581421
+      type: FLOAT
+    }
+  }
+  node {
+    input: "dconv_45_conv_dw_relu_gamma"
+    input: "reshape348"
+    output: "slope348"
+    name: "slope348"
+    op_type: "Reshape"
+  }
+  node {
+    input: "dconv_45_conv_dw_batchnorm"
+    input: "slope348"
+    output: "dconv_45_conv_dw_relu"
+    name: "dconv_45_conv_dw_relu"
+    op_type: "PRelu"
+  }
+  node {
+    input: "dconv_45_conv_dw_relu"
+    input: "dconv_45_conv_proj_conv2d_weight"
+    output: "dconv_45_conv_proj_conv2d"
+    name: "dconv_45_conv_proj_conv2d"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 1
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "dconv_45_conv_proj_conv2d"
+    input: "dconv_45_conv_proj_batchnorm_gamma"
+    input: "dconv_45_conv_proj_batchnorm_beta"
+    input: "dconv_45_conv_proj_batchnorm_moving_mean"
+    input: "dconv_45_conv_proj_batchnorm_moving_var"
+    output: "dconv_45_conv_proj_batchnorm"
+    name: "dconv_45_conv_proj_batchnorm"
+    op_type: "BatchNormalization"
+    attribute {
+      name: "epsilon"
+      f: 0.0010000000474974513
+      type: FLOAT
+    }
+    attribute {
+      name: "momentum"
+      f: 0.8999999761581421
+      type: FLOAT
+    }
+  }
+  node {
+    input: "dconv_45_conv_proj_batchnorm"
+    input: "res_5_block0_conv_sep_conv2d_weight"
+    output: "res_5_block0_conv_sep_conv2d"
+    name: "res_5_block0_conv_sep_conv2d"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 1
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "res_5_block0_conv_sep_conv2d"
+    input: "res_5_block0_conv_sep_batchnorm_gamma"
+    input: "res_5_block0_conv_sep_batchnorm_beta"
+    input: "res_5_block0_conv_sep_batchnorm_moving_mean"
+    input: "res_5_block0_conv_sep_batchnorm_moving_var"
+    output: "res_5_block0_conv_sep_batchnorm"
+    name: "res_5_block0_conv_sep_batchnorm"
+    op_type: "BatchNormalization"
+    attribute {
+      name: "epsilon"
+      f: 0.0010000000474974513
+      type: FLOAT
+    }
+    attribute {
+      name: "momentum"
+      f: 0.8999999761581421
+      type: FLOAT
+    }
+  }
+  node {
+    input: "res_5_block0_conv_sep_relu_gamma"
+    input: "reshape364"
+    output: "slope364"
+    name: "slope364"
+    op_type: "Reshape"
+  }
+  node {
+    input: "res_5_block0_conv_sep_batchnorm"
+    input: "slope364"
+    output: "res_5_block0_conv_sep_relu"
+    name: "res_5_block0_conv_sep_relu"
+    op_type: "PRelu"
+  }
+  node {
+    input: "res_5_block0_conv_sep_relu"
+    input: "res_5_block0_conv_dw_conv2d_weight"
+    output: "res_5_block0_conv_dw_conv2d"
+    name: "res_5_block0_conv_dw_conv2d"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 256
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 3
+      ints: 3
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 1
+      ints: 1
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "res_5_block0_conv_dw_conv2d"
+    input: "res_5_block0_conv_dw_batchnorm_gamma"
+    input: "res_5_block0_conv_dw_batchnorm_beta"
+    input: "res_5_block0_conv_dw_batchnorm_moving_mean"
+    input: "res_5_block0_conv_dw_batchnorm_moving_var"
+    output: "res_5_block0_conv_dw_batchnorm"
+    name: "res_5_block0_conv_dw_batchnorm"
+    op_type: "BatchNormalization"
+    attribute {
+      name: "epsilon"
+      f: 0.0010000000474974513
+      type: FLOAT
+    }
+    attribute {
+      name: "momentum"
+      f: 0.8999999761581421
+      type: FLOAT
+    }
+  }
+  node {
+    input: "res_5_block0_conv_dw_relu_gamma"
+    input: "reshape373"
+    output: "slope373"
+    name: "slope373"
+    op_type: "Reshape"
+  }
+  node {
+    input: "res_5_block0_conv_dw_batchnorm"
+    input: "slope373"
+    output: "res_5_block0_conv_dw_relu"
+    name: "res_5_block0_conv_dw_relu"
+    op_type: "PRelu"
+  }
+  node {
+    input: "res_5_block0_conv_dw_relu"
+    input: "res_5_block0_conv_proj_conv2d_weight"
+    output: "res_5_block0_conv_proj_conv2d"
+    name: "res_5_block0_conv_proj_conv2d"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 1
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "res_5_block0_conv_proj_conv2d"
+    input: "res_5_block0_conv_proj_batchnorm_gamma"
+    input: "res_5_block0_conv_proj_batchnorm_beta"
+    input: "res_5_block0_conv_proj_batchnorm_moving_mean"
+    input: "res_5_block0_conv_proj_batchnorm_moving_var"
+    output: "res_5_block0_conv_proj_batchnorm"
+    name: "res_5_block0_conv_proj_batchnorm"
+    op_type: "BatchNormalization"
+    attribute {
+      name: "epsilon"
+      f: 0.0010000000474974513
+      type: FLOAT
+    }
+    attribute {
+      name: "momentum"
+      f: 0.8999999761581421
+      type: FLOAT
+    }
+  }
+  node {
+    input: "res_5_block0_conv_proj_batchnorm"
+    input: "dconv_45_conv_proj_batchnorm"
+    output: "_plus10"
+    name: "_plus10"
+    op_type: "Add"
+  }
+  node {
+    input: "_plus10"
+    input: "res_5_block1_conv_sep_conv2d_weight"
+    output: "res_5_block1_conv_sep_conv2d"
+    name: "res_5_block1_conv_sep_conv2d"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 1
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "res_5_block1_conv_sep_conv2d"
+    input: "res_5_block1_conv_sep_batchnorm_gamma"
+    input: "res_5_block1_conv_sep_batchnorm_beta"
+    input: "res_5_block1_conv_sep_batchnorm_moving_mean"
+    input: "res_5_block1_conv_sep_batchnorm_moving_var"
+    output: "res_5_block1_conv_sep_batchnorm"
+    name: "res_5_block1_conv_sep_batchnorm"
+    op_type: "BatchNormalization"
+    attribute {
+      name: "epsilon"
+      f: 0.0010000000474974513
+      type: FLOAT
+    }
+    attribute {
+      name: "momentum"
+      f: 0.8999999761581421
+      type: FLOAT
+    }
+  }
+  node {
+    input: "res_5_block1_conv_sep_relu_gamma"
+    input: "reshape390"
+    output: "slope390"
+    name: "slope390"
+    op_type: "Reshape"
+  }
+  node {
+    input: "res_5_block1_conv_sep_batchnorm"
+    input: "slope390"
+    output: "res_5_block1_conv_sep_relu"
+    name: "res_5_block1_conv_sep_relu"
+    op_type: "PRelu"
+  }
+  node {
+    input: "res_5_block1_conv_sep_relu"
+    input: "res_5_block1_conv_dw_conv2d_weight"
+    output: "res_5_block1_conv_dw_conv2d"
+    name: "res_5_block1_conv_dw_conv2d"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 256
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 3
+      ints: 3
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 1
+      ints: 1
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "res_5_block1_conv_dw_conv2d"
+    input: "res_5_block1_conv_dw_batchnorm_gamma"
+    input: "res_5_block1_conv_dw_batchnorm_beta"
+    input: "res_5_block1_conv_dw_batchnorm_moving_mean"
+    input: "res_5_block1_conv_dw_batchnorm_moving_var"
+    output: "res_5_block1_conv_dw_batchnorm"
+    name: "res_5_block1_conv_dw_batchnorm"
+    op_type: "BatchNormalization"
+    attribute {
+      name: "epsilon"
+      f: 0.0010000000474974513
+      type: FLOAT
+    }
+    attribute {
+      name: "momentum"
+      f: 0.8999999761581421
+      type: FLOAT
+    }
+  }
+  node {
+    input: "res_5_block1_conv_dw_relu_gamma"
+    input: "reshape399"
+    output: "slope399"
+    name: "slope399"
+    op_type: "Reshape"
+  }
+  node {
+    input: "res_5_block1_conv_dw_batchnorm"
+    input: "slope399"
+    output: "res_5_block1_conv_dw_relu"
+    name: "res_5_block1_conv_dw_relu"
+    op_type: "PRelu"
+  }
+  node {
+    input: "res_5_block1_conv_dw_relu"
+    input: "res_5_block1_conv_proj_conv2d_weight"
+    output: "res_5_block1_conv_proj_conv2d"
+    name: "res_5_block1_conv_proj_conv2d"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 1
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "res_5_block1_conv_proj_conv2d"
+    input: "res_5_block1_conv_proj_batchnorm_gamma"
+    input: "res_5_block1_conv_proj_batchnorm_beta"
+    input: "res_5_block1_conv_proj_batchnorm_moving_mean"
+    input: "res_5_block1_conv_proj_batchnorm_moving_var"
+    output: "res_5_block1_conv_proj_batchnorm"
+    name: "res_5_block1_conv_proj_batchnorm"
+    op_type: "BatchNormalization"
+    attribute {
+      name: "epsilon"
+      f: 0.0010000000474974513
+      type: FLOAT
+    }
+    attribute {
+      name: "momentum"
+      f: 0.8999999761581421
+      type: FLOAT
+    }
+  }
+  node {
+    input: "res_5_block1_conv_proj_batchnorm"
+    input: "_plus10"
+    output: "_plus11"
+    name: "_plus11"
+    op_type: "Add"
+  }
+  node {
+    input: "_plus11"
+    input: "conv_6sep_conv2d_weight"
+    output: "conv_6sep_conv2d"
+    name: "conv_6sep_conv2d"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 1
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "conv_6sep_conv2d"
+    input: "conv_6sep_batchnorm_gamma"
+    input: "conv_6sep_batchnorm_beta"
+    input: "conv_6sep_batchnorm_moving_mean"
+    input: "conv_6sep_batchnorm_moving_var"
+    output: "conv_6sep_batchnorm"
+    name: "conv_6sep_batchnorm"
+    op_type: "BatchNormalization"
+    attribute {
+      name: "epsilon"
+      f: 0.0010000000474974513
+      type: FLOAT
+    }
+    attribute {
+      name: "momentum"
+      f: 0.8999999761581421
+      type: FLOAT
+    }
+  }
+  node {
+    input: "conv_6sep_relu_gamma"
+    input: "reshape416"
+    output: "slope416"
+    name: "slope416"
+    op_type: "Reshape"
+  }
+  node {
+    input: "conv_6sep_batchnorm"
+    input: "slope416"
+    output: "conv_6sep_relu"
+    name: "conv_6sep_relu"
+    op_type: "PRelu"
+  }
+  node {
+    input: "conv_6sep_relu"
+    input: "conv_6dw7_7_conv2d_weight"
+    output: "conv_6dw7_7_conv2d"
+    name: "conv_6dw7_7_conv2d"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 512
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 7
+      ints: 7
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "conv_6dw7_7_conv2d"
+    input: "conv_6dw7_7_batchnorm_gamma"
+    input: "conv_6dw7_7_batchnorm_beta"
+    input: "conv_6dw7_7_batchnorm_moving_mean"
+    input: "conv_6dw7_7_batchnorm_moving_var"
+    output: "conv_6dw7_7_batchnorm"
+    name: "conv_6dw7_7_batchnorm"
+    op_type: "BatchNormalization"
+    attribute {
+      name: "epsilon"
+      f: 0.0010000000474974513
+      type: FLOAT
+    }
+    attribute {
+      name: "momentum"
+      f: 0.8999999761581421
+      type: FLOAT
+    }
+  }
+  node {
+    input: "conv_6dw7_7_batchnorm"
+    output: "flatten_426"
+    name: "flatten_426"
+    op_type: "Flatten"
+  }
+  node {
+    input: "flatten_426"
+    input: "fc1_weight"
+    input: "pre_fc1_bias"
+    output: "pre_fc1"
+    name: "pre_fc1"
+    op_type: "Gemm"
+    attribute {
+      name: "alpha"
+      f: 1.0
+      type: FLOAT
+    }
+    attribute {
+      name: "beta"
+      f: 1.0
+      type: FLOAT
+    }
+    attribute {
+      name: "transA"
+      i: 0
+      type: INT
+    }
+    attribute {
+      name: "transB"
+      i: 1
+      type: INT
+    }
+  }
+  node {
+    input: "pre_fc1"
+    input: "fc1_gamma"
+    input: "fc1_beta"
+    input: "fc1_moving_mean"
+    input: "fc1_moving_var"
+    output: "fc1"
+    name: "fc1"
+    op_type: "BatchNormalization"
+    attribute {
+      name: "epsilon"
+      f: 1.9999999494757503e-05
+      type: FLOAT
+    }
+    attribute {
+      name: "momentum"
+      f: 0.8999999761581421
+      type: FLOAT
+    }
+  }
+  initializer {
+      dims: 1
+      data_type: 1
+      name: "scalar_op1"
+  }
+  initializer {
+      dims: 1
+      data_type: 1
+      name: "scalar_op2"
+  }
+  initializer {
+      dims: 64
+      dims: 3
+      dims: 3
+      dims: 3
+      data_type: 1
+      name: "conv_1_conv2d_weight"
+  }
+  initializer {
+      dims: 64
+      data_type: 1
+      name: "conv_1_batchnorm_gamma"
+  }
+  initializer {
+      dims: 64
+      data_type: 1
+      name: "conv_1_batchnorm_beta"
+  }
+  initializer {
+      dims: 64
+      data_type: 1
+      name: "conv_1_batchnorm_moving_mean"
+  }
+  initializer {
+      dims: 64
+      data_type: 1
+      name: "conv_1_batchnorm_moving_var"
+  }
+  initializer {
+      dims: 64
+      data_type: 1
+      name: "conv_1_relu_gamma"
+  }
+  initializer {
+      dims: 4
+      data_type: 7
+      name: "reshape11"
+  }
+  initializer {
+      dims: 64
+      dims: 1
+      dims: 3
+      dims: 3
+      data_type: 1
+      name: "conv_2_dw_conv2d_weight"
+  }
+  initializer {
+      dims: 64
+      data_type: 1
+      name: "conv_2_dw_batchnorm_gamma"
+  }
+  initializer {
+      dims: 64
+      data_type: 1
+      name: "conv_2_dw_batchnorm_beta"
+  }
+  initializer {
+      dims: 64
+      data_type: 1
+      name: "conv_2_dw_batchnorm_moving_mean"
+  }
+  initializer {
+      dims: 64
+      data_type: 1
+      name: "conv_2_dw_batchnorm_moving_var"
+  }
+  initializer {
+      dims: 64
+      data_type: 1
+      name: "conv_2_dw_relu_gamma"
+  }
+  initializer {
+      dims: 4
+      data_type: 7
+      name: "reshape20"
+  }
+  initializer {
+      dims: 128
+      dims: 64
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "dconv_23_conv_sep_conv2d_weight"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "dconv_23_conv_sep_batchnorm_gamma"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "dconv_23_conv_sep_batchnorm_beta"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "dconv_23_conv_sep_batchnorm_moving_mean"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "dconv_23_conv_sep_batchnorm_moving_var"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "dconv_23_conv_sep_relu_gamma"
+  }
+  initializer {
+      dims: 4
+      data_type: 7
+      name: "reshape29"
+  }
+  initializer {
+      dims: 128
+      dims: 1
+      dims: 3
+      dims: 3
+      data_type: 1
+      name: "dconv_23_conv_dw_conv2d_weight"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "dconv_23_conv_dw_batchnorm_gamma"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "dconv_23_conv_dw_batchnorm_beta"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "dconv_23_conv_dw_batchnorm_moving_mean"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "dconv_23_conv_dw_batchnorm_moving_var"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "dconv_23_conv_dw_relu_gamma"
+  }
+  initializer {
+      dims: 4
+      data_type: 7
+      name: "reshape38"
+  }
+  initializer {
+      dims: 64
+      dims: 128
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "dconv_23_conv_proj_conv2d_weight"
+  }
+  initializer {
+      dims: 64
+      data_type: 1
+      name: "dconv_23_conv_proj_batchnorm_gamma"
+  }
+  initializer {
+      dims: 64
+      data_type: 1
+      name: "dconv_23_conv_proj_batchnorm_beta"
+  }
+  initializer {
+      dims: 64
+      data_type: 1
+      name: "dconv_23_conv_proj_batchnorm_moving_mean"
+  }
+  initializer {
+      dims: 64
+      data_type: 1
+      name: "dconv_23_conv_proj_batchnorm_moving_var"
+  }
+  initializer {
+      dims: 128
+      dims: 64
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "res_3_block0_conv_sep_conv2d_weight"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "res_3_block0_conv_sep_batchnorm_gamma"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "res_3_block0_conv_sep_batchnorm_beta"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "res_3_block0_conv_sep_batchnorm_moving_mean"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "res_3_block0_conv_sep_batchnorm_moving_var"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "res_3_block0_conv_sep_relu_gamma"
+  }
+  initializer {
+      dims: 4
+      data_type: 7
+      name: "reshape54"
+  }
+  initializer {
+      dims: 128
+      dims: 1
+      dims: 3
+      dims: 3
+      data_type: 1
+      name: "res_3_block0_conv_dw_conv2d_weight"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "res_3_block0_conv_dw_batchnorm_gamma"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "res_3_block0_conv_dw_batchnorm_beta"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "res_3_block0_conv_dw_batchnorm_moving_mean"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "res_3_block0_conv_dw_batchnorm_moving_var"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "res_3_block0_conv_dw_relu_gamma"
+  }
+  initializer {
+      dims: 4
+      data_type: 7
+      name: "reshape63"
+  }
+  initializer {
+      dims: 64
+      dims: 128
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "res_3_block0_conv_proj_conv2d_weight"
+  }
+  initializer {
+      dims: 64
+      data_type: 1
+      name: "res_3_block0_conv_proj_batchnorm_gamma"
+  }
+  initializer {
+      dims: 64
+      data_type: 1
+      name: "res_3_block0_conv_proj_batchnorm_beta"
+  }
+  initializer {
+      dims: 64
+      data_type: 1
+      name: "res_3_block0_conv_proj_batchnorm_moving_mean"
+  }
+  initializer {
+      dims: 64
+      data_type: 1
+      name: "res_3_block0_conv_proj_batchnorm_moving_var"
+  }
+  initializer {
+      dims: 128
+      dims: 64
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "res_3_block1_conv_sep_conv2d_weight"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "res_3_block1_conv_sep_batchnorm_gamma"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "res_3_block1_conv_sep_batchnorm_beta"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "res_3_block1_conv_sep_batchnorm_moving_mean"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "res_3_block1_conv_sep_batchnorm_moving_var"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "res_3_block1_conv_sep_relu_gamma"
+  }
+  initializer {
+      dims: 4
+      data_type: 7
+      name: "reshape80"
+  }
+  initializer {
+      dims: 128
+      dims: 1
+      dims: 3
+      dims: 3
+      data_type: 1
+      name: "res_3_block1_conv_dw_conv2d_weight"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "res_3_block1_conv_dw_batchnorm_gamma"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "res_3_block1_conv_dw_batchnorm_beta"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "res_3_block1_conv_dw_batchnorm_moving_mean"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "res_3_block1_conv_dw_batchnorm_moving_var"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "res_3_block1_conv_dw_relu_gamma"
+  }
+  initializer {
+      dims: 4
+      data_type: 7
+      name: "reshape89"
+  }
+  initializer {
+      dims: 64
+      dims: 128
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "res_3_block1_conv_proj_conv2d_weight"
+  }
+  initializer {
+      dims: 64
+      data_type: 1
+      name: "res_3_block1_conv_proj_batchnorm_gamma"
+  }
+  initializer {
+      dims: 64
+      data_type: 1
+      name: "res_3_block1_conv_proj_batchnorm_beta"
+  }
+  initializer {
+      dims: 64
+      data_type: 1
+      name: "res_3_block1_conv_proj_batchnorm_moving_mean"
+  }
+  initializer {
+      dims: 64
+      data_type: 1
+      name: "res_3_block1_conv_proj_batchnorm_moving_var"
+  }
+  initializer {
+      dims: 128
+      dims: 64
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "res_3_block2_conv_sep_conv2d_weight"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "res_3_block2_conv_sep_batchnorm_gamma"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "res_3_block2_conv_sep_batchnorm_beta"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "res_3_block2_conv_sep_batchnorm_moving_mean"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "res_3_block2_conv_sep_batchnorm_moving_var"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "res_3_block2_conv_sep_relu_gamma"
+  }
+  initializer {
+      dims: 4
+      data_type: 7
+      name: "reshape106"
+  }
+  initializer {
+      dims: 128
+      dims: 1
+      dims: 3
+      dims: 3
+      data_type: 1
+      name: "res_3_block2_conv_dw_conv2d_weight"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "res_3_block2_conv_dw_batchnorm_gamma"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "res_3_block2_conv_dw_batchnorm_beta"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "res_3_block2_conv_dw_batchnorm_moving_mean"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "res_3_block2_conv_dw_batchnorm_moving_var"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "res_3_block2_conv_dw_relu_gamma"
+  }
+  initializer {
+      dims: 4
+      data_type: 7
+      name: "reshape115"
+  }
+  initializer {
+      dims: 64
+      dims: 128
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "res_3_block2_conv_proj_conv2d_weight"
+  }
+  initializer {
+      dims: 64
+      data_type: 1
+      name: "res_3_block2_conv_proj_batchnorm_gamma"
+  }
+  initializer {
+      dims: 64
+      data_type: 1
+      name: "res_3_block2_conv_proj_batchnorm_beta"
+  }
+  initializer {
+      dims: 64
+      data_type: 1
+      name: "res_3_block2_conv_proj_batchnorm_moving_mean"
+  }
+  initializer {
+      dims: 64
+      data_type: 1
+      name: "res_3_block2_conv_proj_batchnorm_moving_var"
+  }
+  initializer {
+      dims: 128
+      dims: 64
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "res_3_block3_conv_sep_conv2d_weight"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "res_3_block3_conv_sep_batchnorm_gamma"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "res_3_block3_conv_sep_batchnorm_beta"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "res_3_block3_conv_sep_batchnorm_moving_mean"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "res_3_block3_conv_sep_batchnorm_moving_var"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "res_3_block3_conv_sep_relu_gamma"
+  }
+  initializer {
+      dims: 4
+      data_type: 7
+      name: "reshape132"
+  }
+  initializer {
+      dims: 128
+      dims: 1
+      dims: 3
+      dims: 3
+      data_type: 1
+      name: "res_3_block3_conv_dw_conv2d_weight"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "res_3_block3_conv_dw_batchnorm_gamma"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "res_3_block3_conv_dw_batchnorm_beta"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "res_3_block3_conv_dw_batchnorm_moving_mean"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "res_3_block3_conv_dw_batchnorm_moving_var"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "res_3_block3_conv_dw_relu_gamma"
+  }
+  initializer {
+      dims: 4
+      data_type: 7
+      name: "reshape141"
+  }
+  initializer {
+      dims: 64
+      dims: 128
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "res_3_block3_conv_proj_conv2d_weight"
+  }
+  initializer {
+      dims: 64
+      data_type: 1
+      name: "res_3_block3_conv_proj_batchnorm_gamma"
+  }
+  initializer {
+      dims: 64
+      data_type: 1
+      name: "res_3_block3_conv_proj_batchnorm_beta"
+  }
+  initializer {
+      dims: 64
+      data_type: 1
+      name: "res_3_block3_conv_proj_batchnorm_moving_mean"
+  }
+  initializer {
+      dims: 64
+      data_type: 1
+      name: "res_3_block3_conv_proj_batchnorm_moving_var"
+  }
+  initializer {
+      dims: 256
+      dims: 64
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "dconv_34_conv_sep_conv2d_weight"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "dconv_34_conv_sep_batchnorm_gamma"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "dconv_34_conv_sep_batchnorm_beta"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "dconv_34_conv_sep_batchnorm_moving_mean"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "dconv_34_conv_sep_batchnorm_moving_var"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "dconv_34_conv_sep_relu_gamma"
+  }
+  initializer {
+      dims: 4
+      data_type: 7
+      name: "reshape158"
+  }
+  initializer {
+      dims: 256
+      dims: 1
+      dims: 3
+      dims: 3
+      data_type: 1
+      name: "dconv_34_conv_dw_conv2d_weight"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "dconv_34_conv_dw_batchnorm_gamma"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "dconv_34_conv_dw_batchnorm_beta"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "dconv_34_conv_dw_batchnorm_moving_mean"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "dconv_34_conv_dw_batchnorm_moving_var"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "dconv_34_conv_dw_relu_gamma"
+  }
+  initializer {
+      dims: 4
+      data_type: 7
+      name: "reshape167"
+  }
+  initializer {
+      dims: 128
+      dims: 256
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "dconv_34_conv_proj_conv2d_weight"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "dconv_34_conv_proj_batchnorm_gamma"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "dconv_34_conv_proj_batchnorm_beta"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "dconv_34_conv_proj_batchnorm_moving_mean"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "dconv_34_conv_proj_batchnorm_moving_var"
+  }
+  initializer {
+      dims: 256
+      dims: 128
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "res_4_block0_conv_sep_conv2d_weight"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_4_block0_conv_sep_batchnorm_gamma"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_4_block0_conv_sep_batchnorm_beta"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_4_block0_conv_sep_batchnorm_moving_mean"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_4_block0_conv_sep_batchnorm_moving_var"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_4_block0_conv_sep_relu_gamma"
+  }
+  initializer {
+      dims: 4
+      data_type: 7
+      name: "reshape183"
+  }
+  initializer {
+      dims: 256
+      dims: 1
+      dims: 3
+      dims: 3
+      data_type: 1
+      name: "res_4_block0_conv_dw_conv2d_weight"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_4_block0_conv_dw_batchnorm_gamma"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_4_block0_conv_dw_batchnorm_beta"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_4_block0_conv_dw_batchnorm_moving_mean"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_4_block0_conv_dw_batchnorm_moving_var"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_4_block0_conv_dw_relu_gamma"
+  }
+  initializer {
+      dims: 4
+      data_type: 7
+      name: "reshape192"
+  }
+  initializer {
+      dims: 128
+      dims: 256
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "res_4_block0_conv_proj_conv2d_weight"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "res_4_block0_conv_proj_batchnorm_gamma"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "res_4_block0_conv_proj_batchnorm_beta"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "res_4_block0_conv_proj_batchnorm_moving_mean"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "res_4_block0_conv_proj_batchnorm_moving_var"
+  }
+  initializer {
+      dims: 256
+      dims: 128
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "res_4_block1_conv_sep_conv2d_weight"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_4_block1_conv_sep_batchnorm_gamma"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_4_block1_conv_sep_batchnorm_beta"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_4_block1_conv_sep_batchnorm_moving_mean"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_4_block1_conv_sep_batchnorm_moving_var"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_4_block1_conv_sep_relu_gamma"
+  }
+  initializer {
+      dims: 4
+      data_type: 7
+      name: "reshape209"
+  }
+  initializer {
+      dims: 256
+      dims: 1
+      dims: 3
+      dims: 3
+      data_type: 1
+      name: "res_4_block1_conv_dw_conv2d_weight"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_4_block1_conv_dw_batchnorm_gamma"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_4_block1_conv_dw_batchnorm_beta"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_4_block1_conv_dw_batchnorm_moving_mean"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_4_block1_conv_dw_batchnorm_moving_var"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_4_block1_conv_dw_relu_gamma"
+  }
+  initializer {
+      dims: 4
+      data_type: 7
+      name: "reshape218"
+  }
+  initializer {
+      dims: 128
+      dims: 256
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "res_4_block1_conv_proj_conv2d_weight"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "res_4_block1_conv_proj_batchnorm_gamma"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "res_4_block1_conv_proj_batchnorm_beta"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "res_4_block1_conv_proj_batchnorm_moving_mean"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "res_4_block1_conv_proj_batchnorm_moving_var"
+  }
+  initializer {
+      dims: 256
+      dims: 128
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "res_4_block2_conv_sep_conv2d_weight"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_4_block2_conv_sep_batchnorm_gamma"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_4_block2_conv_sep_batchnorm_beta"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_4_block2_conv_sep_batchnorm_moving_mean"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_4_block2_conv_sep_batchnorm_moving_var"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_4_block2_conv_sep_relu_gamma"
+  }
+  initializer {
+      dims: 4
+      data_type: 7
+      name: "reshape235"
+  }
+  initializer {
+      dims: 256
+      dims: 1
+      dims: 3
+      dims: 3
+      data_type: 1
+      name: "res_4_block2_conv_dw_conv2d_weight"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_4_block2_conv_dw_batchnorm_gamma"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_4_block2_conv_dw_batchnorm_beta"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_4_block2_conv_dw_batchnorm_moving_mean"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_4_block2_conv_dw_batchnorm_moving_var"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_4_block2_conv_dw_relu_gamma"
+  }
+  initializer {
+      dims: 4
+      data_type: 7
+      name: "reshape244"
+  }
+  initializer {
+      dims: 128
+      dims: 256
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "res_4_block2_conv_proj_conv2d_weight"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "res_4_block2_conv_proj_batchnorm_gamma"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "res_4_block2_conv_proj_batchnorm_beta"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "res_4_block2_conv_proj_batchnorm_moving_mean"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "res_4_block2_conv_proj_batchnorm_moving_var"
+  }
+  initializer {
+      dims: 256
+      dims: 128
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "res_4_block3_conv_sep_conv2d_weight"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_4_block3_conv_sep_batchnorm_gamma"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_4_block3_conv_sep_batchnorm_beta"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_4_block3_conv_sep_batchnorm_moving_mean"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_4_block3_conv_sep_batchnorm_moving_var"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_4_block3_conv_sep_relu_gamma"
+  }
+  initializer {
+      dims: 4
+      data_type: 7
+      name: "reshape261"
+  }
+  initializer {
+      dims: 256
+      dims: 1
+      dims: 3
+      dims: 3
+      data_type: 1
+      name: "res_4_block3_conv_dw_conv2d_weight"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_4_block3_conv_dw_batchnorm_gamma"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_4_block3_conv_dw_batchnorm_beta"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_4_block3_conv_dw_batchnorm_moving_mean"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_4_block3_conv_dw_batchnorm_moving_var"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_4_block3_conv_dw_relu_gamma"
+  }
+  initializer {
+      dims: 4
+      data_type: 7
+      name: "reshape270"
+  }
+  initializer {
+      dims: 128
+      dims: 256
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "res_4_block3_conv_proj_conv2d_weight"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "res_4_block3_conv_proj_batchnorm_gamma"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "res_4_block3_conv_proj_batchnorm_beta"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "res_4_block3_conv_proj_batchnorm_moving_mean"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "res_4_block3_conv_proj_batchnorm_moving_var"
+  }
+  initializer {
+      dims: 256
+      dims: 128
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "res_4_block4_conv_sep_conv2d_weight"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_4_block4_conv_sep_batchnorm_gamma"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_4_block4_conv_sep_batchnorm_beta"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_4_block4_conv_sep_batchnorm_moving_mean"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_4_block4_conv_sep_batchnorm_moving_var"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_4_block4_conv_sep_relu_gamma"
+  }
+  initializer {
+      dims: 4
+      data_type: 7
+      name: "reshape287"
+  }
+  initializer {
+      dims: 256
+      dims: 1
+      dims: 3
+      dims: 3
+      data_type: 1
+      name: "res_4_block4_conv_dw_conv2d_weight"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_4_block4_conv_dw_batchnorm_gamma"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_4_block4_conv_dw_batchnorm_beta"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_4_block4_conv_dw_batchnorm_moving_mean"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_4_block4_conv_dw_batchnorm_moving_var"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_4_block4_conv_dw_relu_gamma"
+  }
+  initializer {
+      dims: 4
+      data_type: 7
+      name: "reshape296"
+  }
+  initializer {
+      dims: 128
+      dims: 256
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "res_4_block4_conv_proj_conv2d_weight"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "res_4_block4_conv_proj_batchnorm_gamma"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "res_4_block4_conv_proj_batchnorm_beta"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "res_4_block4_conv_proj_batchnorm_moving_mean"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "res_4_block4_conv_proj_batchnorm_moving_var"
+  }
+  initializer {
+      dims: 256
+      dims: 128
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "res_4_block5_conv_sep_conv2d_weight"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_4_block5_conv_sep_batchnorm_gamma"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_4_block5_conv_sep_batchnorm_beta"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_4_block5_conv_sep_batchnorm_moving_mean"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_4_block5_conv_sep_batchnorm_moving_var"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_4_block5_conv_sep_relu_gamma"
+  }
+  initializer {
+      dims: 4
+      data_type: 7
+      name: "reshape313"
+  }
+  initializer {
+      dims: 256
+      dims: 1
+      dims: 3
+      dims: 3
+      data_type: 1
+      name: "res_4_block5_conv_dw_conv2d_weight"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_4_block5_conv_dw_batchnorm_gamma"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_4_block5_conv_dw_batchnorm_beta"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_4_block5_conv_dw_batchnorm_moving_mean"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_4_block5_conv_dw_batchnorm_moving_var"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_4_block5_conv_dw_relu_gamma"
+  }
+  initializer {
+      dims: 4
+      data_type: 7
+      name: "reshape322"
+  }
+  initializer {
+      dims: 128
+      dims: 256
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "res_4_block5_conv_proj_conv2d_weight"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "res_4_block5_conv_proj_batchnorm_gamma"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "res_4_block5_conv_proj_batchnorm_beta"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "res_4_block5_conv_proj_batchnorm_moving_mean"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "res_4_block5_conv_proj_batchnorm_moving_var"
+  }
+  initializer {
+      dims: 512
+      dims: 128
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "dconv_45_conv_sep_conv2d_weight"
+  }
+  initializer {
+      dims: 512
+      data_type: 1
+      name: "dconv_45_conv_sep_batchnorm_gamma"
+  }
+  initializer {
+      dims: 512
+      data_type: 1
+      name: "dconv_45_conv_sep_batchnorm_beta"
+  }
+  initializer {
+      dims: 512
+      data_type: 1
+      name: "dconv_45_conv_sep_batchnorm_moving_mean"
+  }
+  initializer {
+      dims: 512
+      data_type: 1
+      name: "dconv_45_conv_sep_batchnorm_moving_var"
+  }
+  initializer {
+      dims: 512
+      data_type: 1
+      name: "dconv_45_conv_sep_relu_gamma"
+  }
+  initializer {
+      dims: 4
+      data_type: 7
+      name: "reshape339"
+  }
+  initializer {
+      dims: 512
+      dims: 1
+      dims: 3
+      dims: 3
+      data_type: 1
+      name: "dconv_45_conv_dw_conv2d_weight"
+  }
+  initializer {
+      dims: 512
+      data_type: 1
+      name: "dconv_45_conv_dw_batchnorm_gamma"
+  }
+  initializer {
+      dims: 512
+      data_type: 1
+      name: "dconv_45_conv_dw_batchnorm_beta"
+  }
+  initializer {
+      dims: 512
+      data_type: 1
+      name: "dconv_45_conv_dw_batchnorm_moving_mean"
+  }
+  initializer {
+      dims: 512
+      data_type: 1
+      name: "dconv_45_conv_dw_batchnorm_moving_var"
+  }
+  initializer {
+      dims: 512
+      data_type: 1
+      name: "dconv_45_conv_dw_relu_gamma"
+  }
+  initializer {
+      dims: 4
+      data_type: 7
+      name: "reshape348"
+  }
+  initializer {
+      dims: 128
+      dims: 512
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "dconv_45_conv_proj_conv2d_weight"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "dconv_45_conv_proj_batchnorm_gamma"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "dconv_45_conv_proj_batchnorm_beta"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "dconv_45_conv_proj_batchnorm_moving_mean"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "dconv_45_conv_proj_batchnorm_moving_var"
+  }
+  initializer {
+      dims: 256
+      dims: 128
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "res_5_block0_conv_sep_conv2d_weight"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_5_block0_conv_sep_batchnorm_gamma"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_5_block0_conv_sep_batchnorm_beta"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_5_block0_conv_sep_batchnorm_moving_mean"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_5_block0_conv_sep_batchnorm_moving_var"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_5_block0_conv_sep_relu_gamma"
+  }
+  initializer {
+      dims: 4
+      data_type: 7
+      name: "reshape364"
+  }
+  initializer {
+      dims: 256
+      dims: 1
+      dims: 3
+      dims: 3
+      data_type: 1
+      name: "res_5_block0_conv_dw_conv2d_weight"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_5_block0_conv_dw_batchnorm_gamma"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_5_block0_conv_dw_batchnorm_beta"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_5_block0_conv_dw_batchnorm_moving_mean"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_5_block0_conv_dw_batchnorm_moving_var"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_5_block0_conv_dw_relu_gamma"
+  }
+  initializer {
+      dims: 4
+      data_type: 7
+      name: "reshape373"
+  }
+  initializer {
+      dims: 128
+      dims: 256
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "res_5_block0_conv_proj_conv2d_weight"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "res_5_block0_conv_proj_batchnorm_gamma"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "res_5_block0_conv_proj_batchnorm_beta"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "res_5_block0_conv_proj_batchnorm_moving_mean"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "res_5_block0_conv_proj_batchnorm_moving_var"
+  }
+  initializer {
+      dims: 256
+      dims: 128
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "res_5_block1_conv_sep_conv2d_weight"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_5_block1_conv_sep_batchnorm_gamma"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_5_block1_conv_sep_batchnorm_beta"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_5_block1_conv_sep_batchnorm_moving_mean"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_5_block1_conv_sep_batchnorm_moving_var"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_5_block1_conv_sep_relu_gamma"
+  }
+  initializer {
+      dims: 4
+      data_type: 7
+      name: "reshape390"
+  }
+  initializer {
+      dims: 256
+      dims: 1
+      dims: 3
+      dims: 3
+      data_type: 1
+      name: "res_5_block1_conv_dw_conv2d_weight"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_5_block1_conv_dw_batchnorm_gamma"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_5_block1_conv_dw_batchnorm_beta"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_5_block1_conv_dw_batchnorm_moving_mean"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_5_block1_conv_dw_batchnorm_moving_var"
+  }
+  initializer {
+      dims: 256
+      data_type: 1
+      name: "res_5_block1_conv_dw_relu_gamma"
+  }
+  initializer {
+      dims: 4
+      data_type: 7
+      name: "reshape399"
+  }
+  initializer {
+      dims: 128
+      dims: 256
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "res_5_block1_conv_proj_conv2d_weight"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "res_5_block1_conv_proj_batchnorm_gamma"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "res_5_block1_conv_proj_batchnorm_beta"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "res_5_block1_conv_proj_batchnorm_moving_mean"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "res_5_block1_conv_proj_batchnorm_moving_var"
+  }
+  initializer {
+      dims: 512
+      dims: 128
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "conv_6sep_conv2d_weight"
+  }
+  initializer {
+      dims: 512
+      data_type: 1
+      name: "conv_6sep_batchnorm_gamma"
+  }
+  initializer {
+      dims: 512
+      data_type: 1
+      name: "conv_6sep_batchnorm_beta"
+  }
+  initializer {
+      dims: 512
+      data_type: 1
+      name: "conv_6sep_batchnorm_moving_mean"
+  }
+  initializer {
+      dims: 512
+      data_type: 1
+      name: "conv_6sep_batchnorm_moving_var"
+  }
+  initializer {
+      dims: 512
+      data_type: 1
+      name: "conv_6sep_relu_gamma"
+  }
+  initializer {
+      dims: 4
+      data_type: 7
+      name: "reshape416"
+  }
+  initializer {
+      dims: 512
+      dims: 1
+      dims: 7
+      dims: 7
+      data_type: 1
+      name: "conv_6dw7_7_conv2d_weight"
+  }
+  initializer {
+      dims: 512
+      data_type: 1
+      name: "conv_6dw7_7_batchnorm_gamma"
+  }
+  initializer {
+      dims: 512
+      data_type: 1
+      name: "conv_6dw7_7_batchnorm_beta"
+  }
+  initializer {
+      dims: 512
+      data_type: 1
+      name: "conv_6dw7_7_batchnorm_moving_mean"
+  }
+  initializer {
+      dims: 512
+      data_type: 1
+      name: "conv_6dw7_7_batchnorm_moving_var"
+  }
+  initializer {
+      dims: 128
+      dims: 512
+      data_type: 1
+      name: "fc1_weight"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "pre_fc1_bias"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "fc1_gamma"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "fc1_beta"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "fc1_moving_mean"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "fc1_moving_var"
+  }
+  input {
+    name: "data"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 1
+          }
+          dim {
+            dim_value: 3
+          }
+          dim {
+            dim_value: 112
+          }
+          dim {
+            dim_value: 112
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "scalar_op1"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 1
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "scalar_op2"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 1
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "conv_1_conv2d_weight"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 64
+          }
+          dim {
+            dim_value: 3
+          }
+          dim {
+            dim_value: 3
+          }
+          dim {
+            dim_value: 3
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "conv_1_batchnorm_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 64
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "conv_1_batchnorm_beta"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 64
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "conv_1_batchnorm_moving_mean"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 64
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "conv_1_batchnorm_moving_var"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 64
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "conv_1_relu_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 64
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "reshape11"
+    type {
+      tensor_type {
+        elem_type: 7
+        shape {
+          dim {
+            dim_value: 4
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "conv_2_dw_conv2d_weight"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 64
+          }
+          dim {
+            dim_value: 1
+          }
+          dim {
+            dim_value: 3
+          }
+          dim {
+            dim_value: 3
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "conv_2_dw_batchnorm_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 64
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "conv_2_dw_batchnorm_beta"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 64
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "conv_2_dw_batchnorm_moving_mean"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 64
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "conv_2_dw_batchnorm_moving_var"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 64
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "conv_2_dw_relu_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 64
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "reshape20"
+    type {
+      tensor_type {
+        elem_type: 7
+        shape {
+          dim {
+            dim_value: 4
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "dconv_23_conv_sep_conv2d_weight"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+          dim {
+            dim_value: 64
+          }
+          dim {
+            dim_value: 1
+          }
+          dim {
+            dim_value: 1
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "dconv_23_conv_sep_batchnorm_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "dconv_23_conv_sep_batchnorm_beta"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "dconv_23_conv_sep_batchnorm_moving_mean"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "dconv_23_conv_sep_batchnorm_moving_var"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "dconv_23_conv_sep_relu_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "reshape29"
+    type {
+      tensor_type {
+        elem_type: 7
+        shape {
+          dim {
+            dim_value: 4
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "dconv_23_conv_dw_conv2d_weight"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+          dim {
+            dim_value: 1
+          }
+          dim {
+            dim_value: 3
+          }
+          dim {
+            dim_value: 3
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "dconv_23_conv_dw_batchnorm_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "dconv_23_conv_dw_batchnorm_beta"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "dconv_23_conv_dw_batchnorm_moving_mean"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "dconv_23_conv_dw_batchnorm_moving_var"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "dconv_23_conv_dw_relu_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "reshape38"
+    type {
+      tensor_type {
+        elem_type: 7
+        shape {
+          dim {
+            dim_value: 4
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "dconv_23_conv_proj_conv2d_weight"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 64
+          }
+          dim {
+            dim_value: 128
+          }
+          dim {
+            dim_value: 1
+          }
+          dim {
+            dim_value: 1
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "dconv_23_conv_proj_batchnorm_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 64
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "dconv_23_conv_proj_batchnorm_beta"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 64
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "dconv_23_conv_proj_batchnorm_moving_mean"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 64
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "dconv_23_conv_proj_batchnorm_moving_var"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 64
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_3_block0_conv_sep_conv2d_weight"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+          dim {
+            dim_value: 64
+          }
+          dim {
+            dim_value: 1
+          }
+          dim {
+            dim_value: 1
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_3_block0_conv_sep_batchnorm_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_3_block0_conv_sep_batchnorm_beta"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_3_block0_conv_sep_batchnorm_moving_mean"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_3_block0_conv_sep_batchnorm_moving_var"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_3_block0_conv_sep_relu_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "reshape54"
+    type {
+      tensor_type {
+        elem_type: 7
+        shape {
+          dim {
+            dim_value: 4
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_3_block0_conv_dw_conv2d_weight"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+          dim {
+            dim_value: 1
+          }
+          dim {
+            dim_value: 3
+          }
+          dim {
+            dim_value: 3
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_3_block0_conv_dw_batchnorm_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_3_block0_conv_dw_batchnorm_beta"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_3_block0_conv_dw_batchnorm_moving_mean"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_3_block0_conv_dw_batchnorm_moving_var"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_3_block0_conv_dw_relu_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "reshape63"
+    type {
+      tensor_type {
+        elem_type: 7
+        shape {
+          dim {
+            dim_value: 4
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_3_block0_conv_proj_conv2d_weight"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 64
+          }
+          dim {
+            dim_value: 128
+          }
+          dim {
+            dim_value: 1
+          }
+          dim {
+            dim_value: 1
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_3_block0_conv_proj_batchnorm_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 64
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_3_block0_conv_proj_batchnorm_beta"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 64
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_3_block0_conv_proj_batchnorm_moving_mean"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 64
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_3_block0_conv_proj_batchnorm_moving_var"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 64
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_3_block1_conv_sep_conv2d_weight"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+          dim {
+            dim_value: 64
+          }
+          dim {
+            dim_value: 1
+          }
+          dim {
+            dim_value: 1
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_3_block1_conv_sep_batchnorm_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_3_block1_conv_sep_batchnorm_beta"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_3_block1_conv_sep_batchnorm_moving_mean"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_3_block1_conv_sep_batchnorm_moving_var"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_3_block1_conv_sep_relu_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "reshape80"
+    type {
+      tensor_type {
+        elem_type: 7
+        shape {
+          dim {
+            dim_value: 4
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_3_block1_conv_dw_conv2d_weight"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+          dim {
+            dim_value: 1
+          }
+          dim {
+            dim_value: 3
+          }
+          dim {
+            dim_value: 3
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_3_block1_conv_dw_batchnorm_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_3_block1_conv_dw_batchnorm_beta"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_3_block1_conv_dw_batchnorm_moving_mean"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_3_block1_conv_dw_batchnorm_moving_var"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_3_block1_conv_dw_relu_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "reshape89"
+    type {
+      tensor_type {
+        elem_type: 7
+        shape {
+          dim {
+            dim_value: 4
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_3_block1_conv_proj_conv2d_weight"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 64
+          }
+          dim {
+            dim_value: 128
+          }
+          dim {
+            dim_value: 1
+          }
+          dim {
+            dim_value: 1
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_3_block1_conv_proj_batchnorm_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 64
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_3_block1_conv_proj_batchnorm_beta"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 64
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_3_block1_conv_proj_batchnorm_moving_mean"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 64
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_3_block1_conv_proj_batchnorm_moving_var"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 64
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_3_block2_conv_sep_conv2d_weight"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+          dim {
+            dim_value: 64
+          }
+          dim {
+            dim_value: 1
+          }
+          dim {
+            dim_value: 1
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_3_block2_conv_sep_batchnorm_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_3_block2_conv_sep_batchnorm_beta"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_3_block2_conv_sep_batchnorm_moving_mean"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_3_block2_conv_sep_batchnorm_moving_var"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_3_block2_conv_sep_relu_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "reshape106"
+    type {
+      tensor_type {
+        elem_type: 7
+        shape {
+          dim {
+            dim_value: 4
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_3_block2_conv_dw_conv2d_weight"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+          dim {
+            dim_value: 1
+          }
+          dim {
+            dim_value: 3
+          }
+          dim {
+            dim_value: 3
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_3_block2_conv_dw_batchnorm_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_3_block2_conv_dw_batchnorm_beta"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_3_block2_conv_dw_batchnorm_moving_mean"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_3_block2_conv_dw_batchnorm_moving_var"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_3_block2_conv_dw_relu_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "reshape115"
+    type {
+      tensor_type {
+        elem_type: 7
+        shape {
+          dim {
+            dim_value: 4
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_3_block2_conv_proj_conv2d_weight"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 64
+          }
+          dim {
+            dim_value: 128
+          }
+          dim {
+            dim_value: 1
+          }
+          dim {
+            dim_value: 1
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_3_block2_conv_proj_batchnorm_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 64
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_3_block2_conv_proj_batchnorm_beta"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 64
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_3_block2_conv_proj_batchnorm_moving_mean"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 64
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_3_block2_conv_proj_batchnorm_moving_var"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 64
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_3_block3_conv_sep_conv2d_weight"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+          dim {
+            dim_value: 64
+          }
+          dim {
+            dim_value: 1
+          }
+          dim {
+            dim_value: 1
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_3_block3_conv_sep_batchnorm_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_3_block3_conv_sep_batchnorm_beta"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_3_block3_conv_sep_batchnorm_moving_mean"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_3_block3_conv_sep_batchnorm_moving_var"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_3_block3_conv_sep_relu_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "reshape132"
+    type {
+      tensor_type {
+        elem_type: 7
+        shape {
+          dim {
+            dim_value: 4
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_3_block3_conv_dw_conv2d_weight"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+          dim {
+            dim_value: 1
+          }
+          dim {
+            dim_value: 3
+          }
+          dim {
+            dim_value: 3
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_3_block3_conv_dw_batchnorm_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_3_block3_conv_dw_batchnorm_beta"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_3_block3_conv_dw_batchnorm_moving_mean"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_3_block3_conv_dw_batchnorm_moving_var"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_3_block3_conv_dw_relu_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "reshape141"
+    type {
+      tensor_type {
+        elem_type: 7
+        shape {
+          dim {
+            dim_value: 4
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_3_block3_conv_proj_conv2d_weight"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 64
+          }
+          dim {
+            dim_value: 128
+          }
+          dim {
+            dim_value: 1
+          }
+          dim {
+            dim_value: 1
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_3_block3_conv_proj_batchnorm_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 64
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_3_block3_conv_proj_batchnorm_beta"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 64
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_3_block3_conv_proj_batchnorm_moving_mean"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 64
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_3_block3_conv_proj_batchnorm_moving_var"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 64
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "dconv_34_conv_sep_conv2d_weight"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+          dim {
+            dim_value: 64
+          }
+          dim {
+            dim_value: 1
+          }
+          dim {
+            dim_value: 1
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "dconv_34_conv_sep_batchnorm_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "dconv_34_conv_sep_batchnorm_beta"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "dconv_34_conv_sep_batchnorm_moving_mean"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "dconv_34_conv_sep_batchnorm_moving_var"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "dconv_34_conv_sep_relu_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "reshape158"
+    type {
+      tensor_type {
+        elem_type: 7
+        shape {
+          dim {
+            dim_value: 4
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "dconv_34_conv_dw_conv2d_weight"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+          dim {
+            dim_value: 1
+          }
+          dim {
+            dim_value: 3
+          }
+          dim {
+            dim_value: 3
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "dconv_34_conv_dw_batchnorm_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "dconv_34_conv_dw_batchnorm_beta"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "dconv_34_conv_dw_batchnorm_moving_mean"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "dconv_34_conv_dw_batchnorm_moving_var"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "dconv_34_conv_dw_relu_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "reshape167"
+    type {
+      tensor_type {
+        elem_type: 7
+        shape {
+          dim {
+            dim_value: 4
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "dconv_34_conv_proj_conv2d_weight"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+          dim {
+            dim_value: 256
+          }
+          dim {
+            dim_value: 1
+          }
+          dim {
+            dim_value: 1
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "dconv_34_conv_proj_batchnorm_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "dconv_34_conv_proj_batchnorm_beta"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "dconv_34_conv_proj_batchnorm_moving_mean"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "dconv_34_conv_proj_batchnorm_moving_var"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block0_conv_sep_conv2d_weight"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+          dim {
+            dim_value: 128
+          }
+          dim {
+            dim_value: 1
+          }
+          dim {
+            dim_value: 1
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block0_conv_sep_batchnorm_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block0_conv_sep_batchnorm_beta"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block0_conv_sep_batchnorm_moving_mean"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block0_conv_sep_batchnorm_moving_var"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block0_conv_sep_relu_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "reshape183"
+    type {
+      tensor_type {
+        elem_type: 7
+        shape {
+          dim {
+            dim_value: 4
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block0_conv_dw_conv2d_weight"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+          dim {
+            dim_value: 1
+          }
+          dim {
+            dim_value: 3
+          }
+          dim {
+            dim_value: 3
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block0_conv_dw_batchnorm_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block0_conv_dw_batchnorm_beta"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block0_conv_dw_batchnorm_moving_mean"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block0_conv_dw_batchnorm_moving_var"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block0_conv_dw_relu_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "reshape192"
+    type {
+      tensor_type {
+        elem_type: 7
+        shape {
+          dim {
+            dim_value: 4
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block0_conv_proj_conv2d_weight"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+          dim {
+            dim_value: 256
+          }
+          dim {
+            dim_value: 1
+          }
+          dim {
+            dim_value: 1
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block0_conv_proj_batchnorm_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block0_conv_proj_batchnorm_beta"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block0_conv_proj_batchnorm_moving_mean"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block0_conv_proj_batchnorm_moving_var"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block1_conv_sep_conv2d_weight"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+          dim {
+            dim_value: 128
+          }
+          dim {
+            dim_value: 1
+          }
+          dim {
+            dim_value: 1
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block1_conv_sep_batchnorm_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block1_conv_sep_batchnorm_beta"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block1_conv_sep_batchnorm_moving_mean"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block1_conv_sep_batchnorm_moving_var"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block1_conv_sep_relu_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "reshape209"
+    type {
+      tensor_type {
+        elem_type: 7
+        shape {
+          dim {
+            dim_value: 4
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block1_conv_dw_conv2d_weight"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+          dim {
+            dim_value: 1
+          }
+          dim {
+            dim_value: 3
+          }
+          dim {
+            dim_value: 3
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block1_conv_dw_batchnorm_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block1_conv_dw_batchnorm_beta"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block1_conv_dw_batchnorm_moving_mean"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block1_conv_dw_batchnorm_moving_var"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block1_conv_dw_relu_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "reshape218"
+    type {
+      tensor_type {
+        elem_type: 7
+        shape {
+          dim {
+            dim_value: 4
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block1_conv_proj_conv2d_weight"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+          dim {
+            dim_value: 256
+          }
+          dim {
+            dim_value: 1
+          }
+          dim {
+            dim_value: 1
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block1_conv_proj_batchnorm_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block1_conv_proj_batchnorm_beta"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block1_conv_proj_batchnorm_moving_mean"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block1_conv_proj_batchnorm_moving_var"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block2_conv_sep_conv2d_weight"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+          dim {
+            dim_value: 128
+          }
+          dim {
+            dim_value: 1
+          }
+          dim {
+            dim_value: 1
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block2_conv_sep_batchnorm_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block2_conv_sep_batchnorm_beta"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block2_conv_sep_batchnorm_moving_mean"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block2_conv_sep_batchnorm_moving_var"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block2_conv_sep_relu_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "reshape235"
+    type {
+      tensor_type {
+        elem_type: 7
+        shape {
+          dim {
+            dim_value: 4
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block2_conv_dw_conv2d_weight"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+          dim {
+            dim_value: 1
+          }
+          dim {
+            dim_value: 3
+          }
+          dim {
+            dim_value: 3
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block2_conv_dw_batchnorm_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block2_conv_dw_batchnorm_beta"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block2_conv_dw_batchnorm_moving_mean"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block2_conv_dw_batchnorm_moving_var"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block2_conv_dw_relu_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "reshape244"
+    type {
+      tensor_type {
+        elem_type: 7
+        shape {
+          dim {
+            dim_value: 4
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block2_conv_proj_conv2d_weight"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+          dim {
+            dim_value: 256
+          }
+          dim {
+            dim_value: 1
+          }
+          dim {
+            dim_value: 1
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block2_conv_proj_batchnorm_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block2_conv_proj_batchnorm_beta"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block2_conv_proj_batchnorm_moving_mean"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block2_conv_proj_batchnorm_moving_var"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block3_conv_sep_conv2d_weight"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+          dim {
+            dim_value: 128
+          }
+          dim {
+            dim_value: 1
+          }
+          dim {
+            dim_value: 1
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block3_conv_sep_batchnorm_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block3_conv_sep_batchnorm_beta"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block3_conv_sep_batchnorm_moving_mean"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block3_conv_sep_batchnorm_moving_var"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block3_conv_sep_relu_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "reshape261"
+    type {
+      tensor_type {
+        elem_type: 7
+        shape {
+          dim {
+            dim_value: 4
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block3_conv_dw_conv2d_weight"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+          dim {
+            dim_value: 1
+          }
+          dim {
+            dim_value: 3
+          }
+          dim {
+            dim_value: 3
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block3_conv_dw_batchnorm_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block3_conv_dw_batchnorm_beta"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block3_conv_dw_batchnorm_moving_mean"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block3_conv_dw_batchnorm_moving_var"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block3_conv_dw_relu_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "reshape270"
+    type {
+      tensor_type {
+        elem_type: 7
+        shape {
+          dim {
+            dim_value: 4
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block3_conv_proj_conv2d_weight"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+          dim {
+            dim_value: 256
+          }
+          dim {
+            dim_value: 1
+          }
+          dim {
+            dim_value: 1
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block3_conv_proj_batchnorm_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block3_conv_proj_batchnorm_beta"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block3_conv_proj_batchnorm_moving_mean"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block3_conv_proj_batchnorm_moving_var"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block4_conv_sep_conv2d_weight"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+          dim {
+            dim_value: 128
+          }
+          dim {
+            dim_value: 1
+          }
+          dim {
+            dim_value: 1
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block4_conv_sep_batchnorm_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block4_conv_sep_batchnorm_beta"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block4_conv_sep_batchnorm_moving_mean"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block4_conv_sep_batchnorm_moving_var"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block4_conv_sep_relu_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "reshape287"
+    type {
+      tensor_type {
+        elem_type: 7
+        shape {
+          dim {
+            dim_value: 4
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block4_conv_dw_conv2d_weight"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+          dim {
+            dim_value: 1
+          }
+          dim {
+            dim_value: 3
+          }
+          dim {
+            dim_value: 3
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block4_conv_dw_batchnorm_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block4_conv_dw_batchnorm_beta"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block4_conv_dw_batchnorm_moving_mean"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block4_conv_dw_batchnorm_moving_var"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block4_conv_dw_relu_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "reshape296"
+    type {
+      tensor_type {
+        elem_type: 7
+        shape {
+          dim {
+            dim_value: 4
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block4_conv_proj_conv2d_weight"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+          dim {
+            dim_value: 256
+          }
+          dim {
+            dim_value: 1
+          }
+          dim {
+            dim_value: 1
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block4_conv_proj_batchnorm_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block4_conv_proj_batchnorm_beta"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block4_conv_proj_batchnorm_moving_mean"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block4_conv_proj_batchnorm_moving_var"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block5_conv_sep_conv2d_weight"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+          dim {
+            dim_value: 128
+          }
+          dim {
+            dim_value: 1
+          }
+          dim {
+            dim_value: 1
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block5_conv_sep_batchnorm_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block5_conv_sep_batchnorm_beta"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block5_conv_sep_batchnorm_moving_mean"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block5_conv_sep_batchnorm_moving_var"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block5_conv_sep_relu_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "reshape313"
+    type {
+      tensor_type {
+        elem_type: 7
+        shape {
+          dim {
+            dim_value: 4
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block5_conv_dw_conv2d_weight"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+          dim {
+            dim_value: 1
+          }
+          dim {
+            dim_value: 3
+          }
+          dim {
+            dim_value: 3
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block5_conv_dw_batchnorm_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block5_conv_dw_batchnorm_beta"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block5_conv_dw_batchnorm_moving_mean"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block5_conv_dw_batchnorm_moving_var"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block5_conv_dw_relu_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "reshape322"
+    type {
+      tensor_type {
+        elem_type: 7
+        shape {
+          dim {
+            dim_value: 4
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block5_conv_proj_conv2d_weight"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+          dim {
+            dim_value: 256
+          }
+          dim {
+            dim_value: 1
+          }
+          dim {
+            dim_value: 1
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block5_conv_proj_batchnorm_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block5_conv_proj_batchnorm_beta"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block5_conv_proj_batchnorm_moving_mean"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_4_block5_conv_proj_batchnorm_moving_var"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "dconv_45_conv_sep_conv2d_weight"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 512
+          }
+          dim {
+            dim_value: 128
+          }
+          dim {
+            dim_value: 1
+          }
+          dim {
+            dim_value: 1
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "dconv_45_conv_sep_batchnorm_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 512
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "dconv_45_conv_sep_batchnorm_beta"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 512
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "dconv_45_conv_sep_batchnorm_moving_mean"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 512
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "dconv_45_conv_sep_batchnorm_moving_var"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 512
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "dconv_45_conv_sep_relu_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 512
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "reshape339"
+    type {
+      tensor_type {
+        elem_type: 7
+        shape {
+          dim {
+            dim_value: 4
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "dconv_45_conv_dw_conv2d_weight"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 512
+          }
+          dim {
+            dim_value: 1
+          }
+          dim {
+            dim_value: 3
+          }
+          dim {
+            dim_value: 3
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "dconv_45_conv_dw_batchnorm_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 512
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "dconv_45_conv_dw_batchnorm_beta"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 512
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "dconv_45_conv_dw_batchnorm_moving_mean"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 512
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "dconv_45_conv_dw_batchnorm_moving_var"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 512
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "dconv_45_conv_dw_relu_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 512
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "reshape348"
+    type {
+      tensor_type {
+        elem_type: 7
+        shape {
+          dim {
+            dim_value: 4
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "dconv_45_conv_proj_conv2d_weight"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+          dim {
+            dim_value: 512
+          }
+          dim {
+            dim_value: 1
+          }
+          dim {
+            dim_value: 1
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "dconv_45_conv_proj_batchnorm_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "dconv_45_conv_proj_batchnorm_beta"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "dconv_45_conv_proj_batchnorm_moving_mean"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "dconv_45_conv_proj_batchnorm_moving_var"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_5_block0_conv_sep_conv2d_weight"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+          dim {
+            dim_value: 128
+          }
+          dim {
+            dim_value: 1
+          }
+          dim {
+            dim_value: 1
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_5_block0_conv_sep_batchnorm_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_5_block0_conv_sep_batchnorm_beta"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_5_block0_conv_sep_batchnorm_moving_mean"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_5_block0_conv_sep_batchnorm_moving_var"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_5_block0_conv_sep_relu_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "reshape364"
+    type {
+      tensor_type {
+        elem_type: 7
+        shape {
+          dim {
+            dim_value: 4
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_5_block0_conv_dw_conv2d_weight"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+          dim {
+            dim_value: 1
+          }
+          dim {
+            dim_value: 3
+          }
+          dim {
+            dim_value: 3
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_5_block0_conv_dw_batchnorm_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_5_block0_conv_dw_batchnorm_beta"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_5_block0_conv_dw_batchnorm_moving_mean"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_5_block0_conv_dw_batchnorm_moving_var"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_5_block0_conv_dw_relu_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "reshape373"
+    type {
+      tensor_type {
+        elem_type: 7
+        shape {
+          dim {
+            dim_value: 4
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_5_block0_conv_proj_conv2d_weight"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+          dim {
+            dim_value: 256
+          }
+          dim {
+            dim_value: 1
+          }
+          dim {
+            dim_value: 1
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_5_block0_conv_proj_batchnorm_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_5_block0_conv_proj_batchnorm_beta"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_5_block0_conv_proj_batchnorm_moving_mean"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_5_block0_conv_proj_batchnorm_moving_var"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_5_block1_conv_sep_conv2d_weight"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+          dim {
+            dim_value: 128
+          }
+          dim {
+            dim_value: 1
+          }
+          dim {
+            dim_value: 1
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_5_block1_conv_sep_batchnorm_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_5_block1_conv_sep_batchnorm_beta"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_5_block1_conv_sep_batchnorm_moving_mean"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_5_block1_conv_sep_batchnorm_moving_var"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_5_block1_conv_sep_relu_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "reshape390"
+    type {
+      tensor_type {
+        elem_type: 7
+        shape {
+          dim {
+            dim_value: 4
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_5_block1_conv_dw_conv2d_weight"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+          dim {
+            dim_value: 1
+          }
+          dim {
+            dim_value: 3
+          }
+          dim {
+            dim_value: 3
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_5_block1_conv_dw_batchnorm_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_5_block1_conv_dw_batchnorm_beta"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_5_block1_conv_dw_batchnorm_moving_mean"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_5_block1_conv_dw_batchnorm_moving_var"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_5_block1_conv_dw_relu_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 256
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "reshape399"
+    type {
+      tensor_type {
+        elem_type: 7
+        shape {
+          dim {
+            dim_value: 4
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_5_block1_conv_proj_conv2d_weight"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+          dim {
+            dim_value: 256
+          }
+          dim {
+            dim_value: 1
+          }
+          dim {
+            dim_value: 1
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_5_block1_conv_proj_batchnorm_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_5_block1_conv_proj_batchnorm_beta"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_5_block1_conv_proj_batchnorm_moving_mean"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "res_5_block1_conv_proj_batchnorm_moving_var"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "conv_6sep_conv2d_weight"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 512
+          }
+          dim {
+            dim_value: 128
+          }
+          dim {
+            dim_value: 1
+          }
+          dim {
+            dim_value: 1
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "conv_6sep_batchnorm_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 512
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "conv_6sep_batchnorm_beta"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 512
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "conv_6sep_batchnorm_moving_mean"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 512
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "conv_6sep_batchnorm_moving_var"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 512
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "conv_6sep_relu_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 512
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "reshape416"
+    type {
+      tensor_type {
+        elem_type: 7
+        shape {
+          dim {
+            dim_value: 4
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "conv_6dw7_7_conv2d_weight"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 512
+          }
+          dim {
+            dim_value: 1
+          }
+          dim {
+            dim_value: 7
+          }
+          dim {
+            dim_value: 7
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "conv_6dw7_7_batchnorm_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 512
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "conv_6dw7_7_batchnorm_beta"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 512
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "conv_6dw7_7_batchnorm_moving_mean"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 512
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "conv_6dw7_7_batchnorm_moving_var"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 512
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "fc1_weight"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+          dim {
+            dim_value: 512
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "pre_fc1_bias"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "fc1_gamma"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "fc1_beta"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "fc1_moving_mean"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  input {
+    name: "fc1_moving_var"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+  output {
+    name: "fc1"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 1
+          }
+          dim {
+            dim_value: 128
+          }
+        }
+      }
+    }
+  }
+}
+opset_import {
+  version: 7
+}
