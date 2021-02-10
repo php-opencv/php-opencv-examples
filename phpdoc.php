@@ -1397,7 +1397,7 @@ class Net {
     /**
      * @return Mat
      */
-    public function forward() {
+    public function forward(string $name = '') {
 
     }
 }
