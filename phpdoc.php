@@ -877,6 +877,16 @@ function norm(Mat $src, int $norm_type = NORM_L2)
 
 }
 
+/**
+ * @param Mat $src
+ * @param Mat $mean
+ * @param Mat $sdv
+ */
+function meanStdDev(Mat $src, Mat &$mean, Mat &$sdv)
+{
+
+}
+
 function GaussianBlur(Mat $src, Mat $dst, Size $ksize, double $sigmaX, double $sigmaY = 0, $borderType = BORDER_DEFAULT)
 {
 
@@ -1411,7 +1421,7 @@ class Net {
  * @param bool $crop
  * @return Mat
  */
-function blobFromImage(Mat $image, float $scalefactor = 1.0, Size $size, Scalar $mean, $swapRB = true, $crop = true) {
+function blobFromImage(Mat $image, float $scalefactor = 1.0, Size $size, Scalar $mean, $swapRB = false, $crop = false) {
     return new Mat();
 }
 
