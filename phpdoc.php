@@ -1410,6 +1410,13 @@ class Net {
     public function forward(string $name = '') {
 
     }
+
+    /**
+     * @return array
+     */
+    public function forwardMulti(array $names) {
+
+    }
 }
 
 /**
