@@ -11,3 +11,5 @@ Sources:
 * ssd_mobilenet_v2_coco - https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md
 * insightface - https://github.com/axinc-ai/ailia-models/tree/master/face_identification/insightface
 * VanFace - https://github.com/lsy17096535/face-landmark
+* centerface.onnx - https://github.com/Star-Clouds/CenterFace/blob/master/models/onnx/centerface.onnx
+* mtcnn - https://github.com/CongWeilin/mtcnn-caffe https://github.com/imistyrain/MTCNN
