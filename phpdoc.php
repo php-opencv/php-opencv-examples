@@ -168,7 +168,7 @@ class Mat {
      * @param Mat|null $to
      * @return null
      */
-    public function copy_to(Mat $mat, Mat $to = null) {
+    public function copyTo(Mat $mat, Mat $to = null) {
         return null;
     }
 
