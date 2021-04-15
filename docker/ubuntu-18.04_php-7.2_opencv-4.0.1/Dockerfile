@@ -9,6 +9,7 @@ RUN wget https://raw.githubusercontent.com/php-opencv/php-opencv-packages/master
 #RUN dpkg -i opencv_4.0.1_amd64.deb && rm opencv_4.0.1_amd64.deb
 
 RUN git clone https://github.com/php-opencv/php-opencv.git
+RUN cd php-opencv && git checkout php7.2
 #COPY php-opencv /php-opencv
 
 #RUN ldconfig
