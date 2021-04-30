@@ -114,7 +114,7 @@ class Mat {
      * @param int $flags
      * @return Mat|null
      */
-    public function zeros_by_size(Size $size, int $flags) {
+    public function zerosBySize(Size $size, int $flags) {
 
     }
 
@@ -128,14 +128,14 @@ class Mat {
     /**
      * @return bool
      */
-    public function is_continuous() {
+    public function isContinuous() {
 
     }
 
     /**
      * @return bool
      */
-    public function is_submatrix() {
+    public function isSubmatrix() {
 
     }
 
