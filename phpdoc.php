@@ -684,7 +684,7 @@ function getTickCount()
 }
 
 /**
- * @return double
+ * @return float
  */
 function getTickFrequency()
 {
@@ -709,6 +709,67 @@ function setMouseCallback(String $winname, $onMouse = null)
  */
 function boundingRect(array $points)
 {
+
+}
+
+/**
+ * @param Point $center
+ * @param float $angle
+ * @param float $scale
+ * @return Mat
+ */
+function getRotationMatrix2D(Point $center, float $angle, float $scale) {
+
+}
+
+/**
+ * @param Mat $src
+ * @param Mat $dst
+ * @param Mat $M
+ * @param Size $dsize
+ * @param int $flags
+ * @param int $borderMode
+ * @param Scalar $border_value
+ * @return null
+ */
+function warpAffine(Mat $src, Mat $dst, Mat $M, Size $dsize, int $flags = null, int $borderMode = null, Scalar $border_value = null) {
+
+}
+
+/**
+ * @param Mat $image
+ * @param Size $patch_size
+ * @param Point $center
+ * @param Size $dsize
+ * @param object $patch
+ * @param int $patchType
+ * @return Mat
+ */
+function getRectSubPix(Mat $image, Size $patch_size, Point $center, object $patch, int $patchType = null) {
+
+}
+
+/**
+ * @param array $src
+ * @param array $dst
+ * @param int $solveMethod
+ * @return Mat
+ */
+function getPerspectiveTransform(array $src, array $dst, int $solveMethod = null) {
+
+}
+
+/**
+ * @param Mat $src
+ * @param Mat $dst
+ * @param Mat $M
+ * @param Size $dsize
+ * @param int $flags
+ * @param int $borderMode
+ * @param Scalar $border_value
+ * @return null
+ */
+function warpPerspective(Mat $src, Mat $dst, Mat $M, Size $dsize, int $flags = null, int $borderMode = null, Scalar $border_value = null) {
 
 }
 
@@ -887,7 +948,7 @@ function meanStdDev(Mat $src, Mat &$mean, Mat &$sdv)
 
 }
 
-function GaussianBlur(Mat $src, Mat $dst, Size $ksize, double $sigmaX, double $sigmaY = 0, $borderType = BORDER_DEFAULT)
+function GaussianBlur(Mat $src, Mat $dst, Size $ksize, float $sigmaX, float $sigmaY = 0, $borderType = BORDER_DEFAULT)
 {
 
 }
@@ -930,12 +991,12 @@ function erode(Mat $src, Mat $dst, Mat $kernel, Point $anchor = null, int $itera
  * @param int        $ddepth     原图像的深度，$src->depth()
  * @param Mat        $kernel     卷积核，是一个单通道浮点型的矩阵，如果你想使用不同的核在不同的通道，那么可以使用函数Split（）将通道分离，再逐个使用核运算
  * @param Point|null $anchor     核的中心，默认在核的中点处
- * @param double     $delta      未知用途
+ * @param float     $delta      未知用途
  * @param int        $borderType 未知用途
  *
  * @return null
  */
-function filter2D(Mat $src, Mat &$dst, int $ddepth, Mat $kernel, Point $anchor = null, double $delta = 0, int $borderType = BORDER_DEFAULT)
+function filter2D(Mat $src, Mat &$dst, int $ddepth, Mat $kernel, Point $anchor = null, float $delta = 0, int $borderType = BORDER_DEFAULT)
 {
 
 }
@@ -995,13 +1056,13 @@ function floodFill(Mat $image, Point $seedPoint, Scalar $newVal, Mat $mat = null
  *
  * @param Mat    $src
  * @param Mat    $dst
- * @param double $maxValue
+ * @param float $maxValue
  * @param int    $adaptiveMethod
  * @param int    $thresholdType
  * @param int    $blockSize
- * @param double $C
+ * @param float $C
  */
-function adaptiveThreshold(Mat $src, Mat $dst, double $maxValue, int $adaptiveMethod, int $thresholdType, int $blockSize, double $C)
+function adaptiveThreshold(Mat $src, Mat $dst, float $maxValue, int $adaptiveMethod, int $thresholdType, int $blockSize, float $C)
 {
 
 }
