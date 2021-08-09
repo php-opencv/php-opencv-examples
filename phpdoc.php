@@ -244,6 +244,16 @@ class Mat {
     public function subtract(Mat $value1, Mat $value2) {
 
     }
+
+    /**
+     * @param int $dims
+     * @param array $shape
+     * @param int $type
+     * @return Mat|null
+     */
+    public function createWithDims(int $dims, array $shape, int $type) {
+        return new Mat();
+    }
 }
 
 /**
@@ -1490,6 +1500,19 @@ class Net {
  * @return Mat
  */
 function blobFromImage(Mat $image, float $scalefactor = 1.0, Size $size, Scalar $mean, $swapRB = false, $crop = false) {
+    return new Mat();
+}
+
+/**
+ * @param array $image
+ * @param float $scalefactor
+ * @param Size $size
+ * @param Scalar $mean
+ * @param bool $swapRB
+ * @param bool $crop
+ * @return Mat
+ */
+function blobFromImages(array $images, float $scalefactor = 1.0, Size $size, Scalar $mean, $swapRB = false, $crop = false) {
     return new Mat();
 }
 
