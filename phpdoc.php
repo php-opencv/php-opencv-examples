@@ -186,10 +186,42 @@ class Mat {
     /**
      * @param array $idx
      * @param int $channel
-     * @param null $value
-     * @return int|float $value
+     * @param int|float|null $value
+     * @return int|float
      */
     public function atIdx(array $idx, int $channel = 1, $value = null) {
+
+    }
+
+    /**
+     * @param int $index
+     * @return int|float
+     */
+    public function dataAt(int $index) {
+
+    }
+
+    /**
+     * @param array $data
+     * @return null
+     */
+    public function setData(array $data) {
+
+    }
+
+    /**
+     * @param Mat $src
+     * @param int $offset
+     * @return null
+     */
+    public function useDataFrom(Mat $src, int $offset = 0) {
+
+    }
+
+    /**
+     * @return int
+     */
+    public function total() {
 
     }
 
