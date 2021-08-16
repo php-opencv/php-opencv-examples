@@ -278,6 +278,21 @@ class Mat {
     }
 
     /**
+     * @return Mat|null $mat
+     */
+    public function t() {
+
+    }
+
+    /**
+     * @param int $diag
+     * @return Mat|null $mat
+     */
+    public function diag(int $diag) {
+
+    }
+
+    /**
      * @param int $dims
      * @param array $shape
      * @param int $type
