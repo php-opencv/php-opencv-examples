@@ -40,7 +40,7 @@ Results: 87%: Egyptian cat, 4%: tabby, tabby cat, 2%: tiger cat
 
 #### Requirements
 - PHP 7.0 / 7.1 / 7.2 / 7.3 / 7.4 / 8.0 / 8.1 / 8.2
-- OpenCV 4.0.0+
+- OpenCV 4.5.5+
 - [php-opencv](https://github.com/php-opencv/php-opencv)
 
 #### Thanks
