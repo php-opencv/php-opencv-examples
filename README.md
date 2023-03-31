@@ -33,7 +33,7 @@ Results: 87%: Egyptian cat, 4%: tabby, tabby cat, 2%: tiger cat
 - [php-opencv-ide-helper](https://github.com/hihozhou/php-opencv-ide-helper)
 
 #### Installation (3 steps)
-- [install opencv 4.0.0+](https://github.com/php-opencv/php-opencv/wiki/Installation.-opencv)
+- [install opencv 4.5.5+](https://github.com/php-opencv/php-opencv/wiki/Installation.-opencv)
 - [install php-opencv for your php version](https://github.com/php-opencv/php-opencv/wiki/Installation.-php-opencv)
 - [install php-opencv-examples](https://github.com/php-opencv/php-opencv/wiki/Installation.-php-opencv-examples)
 - [resolve problems](https://github.com/php-opencv/php-opencv/wiki/Installation.-troubleshooting) (if you need it)
