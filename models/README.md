@@ -13,3 +13,5 @@ Sources:
 * VanFace - https://github.com/lsy17096535/face-landmark
 * centerface.onnx - https://github.com/Star-Clouds/CenterFace/blob/master/models/onnx/centerface.onnx
 * mtcnn - https://github.com/CongWeilin/mtcnn-caffe https://github.com/imistyrain/MTCNN
+* face_detection_yunet_2022mar - https://github.com/opencv/opencv_zoo/tree/master/models/face_detection_yunet
+* face_recognition_sface_2021dec - https://github.com/opencv/opencv_zoo/tree/master/models/face_recognition_sface
