@@ -574,7 +574,7 @@ function ellipse(Mat $image, Point $point, Size $size, int $angle, int $startAng
  * @param int $shift
  * @return null
  */
-function rectangle(Mat $image, int $startX, int $startY, int $endX, int $endY, Scalar $color, int $thickness = 1, int $lineType = null, int $shift = 0) {
+function rectangle(Mat &$image, int $startX, int $startY, int $endX, int $endY, Scalar $color, int $thickness = 1, int $lineType = null, int $shift = 0) {
     return null;
 }
 
@@ -1613,4 +1613,26 @@ function readNetFromONNX(string $model) {
  */
 function readNetFromModelOptimizer(string $model, string $weights) {
 
+}
+
+namespace CV;
+
+class FaceDetectorYN {
+    public static function create(string $model, string $config, Size $size, float $threshold = 0.9, float $nms_threshold = 0.3, int $top_k = 5000, int $backend_id = 0, int $target_id = 0) {
+        return new self();
+    }
+
+    public function detect(Mat $image) {
+        return new Mat();
+    }
+}
+
+class FaceRecognizerSF {
+    public static function create(string $model, string $config, int $backend_id = 0, int $target_id = 0) {
+        return new self();
+    }
+
+    public function alignCrop(Mat $image, Mat $face) {
+        return new Mat();
+    }
 }
