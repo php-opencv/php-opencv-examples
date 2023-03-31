@@ -1416,6 +1416,9 @@ define('CV\COLOR_BayerRG2RGBA', 139);
 define('CV\COLOR_BayerGR2RGBA', 140);
 define('CV\COLOR_COLORCVT_MAX', 143);
 
+define('CV\FaceRecognizerSF_DISTYPE_FR_COSINE', 0);
+define('CV\FaceRecognizerSF_DISTYPE_FR_NORM_L2', 1);
+
 namespace CV\Face;
 use CV\Mat;
 
@@ -1633,6 +1636,14 @@ class FaceRecognizerSF {
     }
 
     public function alignCrop(Mat $image, Mat $face) {
+        return new Mat();
+    }
+
+    public function feature(Mat $face) {
+        return new Mat();
+    }
+
+    public function match(Mat $face1, Mat $face2, $dis_type = 0) {
         return new Mat();
     }
 }
