@@ -7,7 +7,6 @@ $src = imread("images/faces.jpg");
 $scalar = new Scalar(0, 0, 255);
 
 $netDet = CV\FaceDetectorYN::create('models/opencv_zoo/face_detection_yunet_2022mar.onnx', '', $src->size());
-$netRecogn = CV\FaceRecognizerSF::create('models/opencv_zoo/face_recognition_sface_2021dec.onnx', '');
 
 $r = $netDet->detect($src);
 
